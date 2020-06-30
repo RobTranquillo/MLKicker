@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kicker (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}
 --- !u!1001 &676899093
@@ -257,6 +262,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kicker (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}
@@ -419,6 +429,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kicker (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}
 --- !u!1001 &718930536
@@ -487,6 +502,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kicker (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}
@@ -640,6 +660,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kicker (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}
 --- !u!1001 &1311092696
@@ -709,6 +734,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kicker (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}
 --- !u!1001 &1444227138
@@ -777,6 +807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Kicker (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d6e59c84643924fb1ab4b0c4110e5a, type: 3}

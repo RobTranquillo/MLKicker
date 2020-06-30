@@ -1,3 +1,7 @@
+A Unity MLAgents that try to play TableKicker
+
+Foundation you have to understand and done yet:
+https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Getting-Started.md
 
 content of:
     \ml-agents\config\mlkicker_config.yaml
@@ -27,3 +31,4 @@ MLKicker:
   sequence_length: 64
   memory_size: 128
   '''
+
