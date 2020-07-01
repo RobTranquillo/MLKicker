@@ -1,42 +1,40 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using TMPro;
 using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
-using System;
-using UnityEngine.UI;
-
+using UnityEngine;
 
 /// <summary>
-/// Der Player soll erstmal nur den Ball los kicken Richtung Tor 
+///     Der Player soll erstmal nur den Ball los kicken Richtung Tor
 /// </summary>
 public class PlayerAgent_Offense : Agent
 {
-    public Rigidbody pole;
-    private Transform tr_pole;
-    private Vector3 pole_position;
-    private Quaternion pole_rotation;
-
     public GameObject ball;
-    private Rigidbody rb_ball;
-    private Transform tr_ball;
-    private SphereCollider cl_ball;
-
-    public Transform target;
-    public Transform keepGoal;
-    public float kickInPower = 10;
-    [Tooltip("Velocity threshold below which the ball is defined at rest")]
-    public float ballRestThreshold = 1f;
-    [Tooltip("Reset the ball after period of time without moving")]
-    public float ballRestTimeout = 3f;
-    private float ballRestBegin = 0;
-    public float shootPositionRange = 4;
-    private float lastVelocity = 0f;
     private Collides ballCollides;
     private Vector3 ballDefaultPosition;
-    
-    [Header("Debug Output")]
-    public TMPro.TMP_Text cumulativeReward;    
+    private float ballRestBegin;
+
+    [Tooltip("Velocity threshold below which the ball is defined at rest")]
+    public float ballRestThreshold = 1f;
+
+    [Tooltip("Reset the ball after period of time without moving")]
+    public float ballRestTimeout = 3f;
+
+    private SphereCollider cl_ball;
+
+    [Header("Debug Output")] public TMP_Text cumulativeReward;
+
+    public Transform keepGoal;
+    public float kickInPower = 10;
+    private float lastVelocity;
+    public Rigidbody pole;
+    private Vector3 pole_position;
+    private Quaternion pole_rotation;
+    private Rigidbody rb_ball;
+    public float shootPositionRange = 4;
+
+    public Transform target;
+    private Transform tr_ball;
+    private Transform tr_pole;
 
     private void Start()
     {
@@ -46,7 +44,7 @@ public class PlayerAgent_Offense : Agent
         ballCollides = ball.GetComponent<Collides>();
         pole_position = tr_pole.position;
         pole_rotation = tr_pole.rotation;
-        shootPositionRange = shootPositionRange/2;
+        shootPositionRange = shootPositionRange / 2;
         ballDefaultPosition = tr_ball.localPosition;
     }
 
@@ -55,12 +53,17 @@ public class PlayerAgent_Offense : Agent
         tr_pole.position = pole_position;
         tr_pole.rotation = pole_rotation;
         // KickInTheBall();
-        CenterTheBall();
+        SpawnTheBall();
     }
 
-    private void CenterTheBall()
+    /// <summary>
+    ///     place the ball randomly
+    /// </summary>
+    private void SpawnTheBall()
     {
-        tr_ball.localPosition = ballDefaultPosition;
+        var pos = ballDefaultPosition;
+        pos.x = Random.Range(-4.4f, 4.4f);
+        tr_ball.localPosition = pos;
         rb_ball.velocity = Vector3.zero;
         rb_ball.angularVelocity = Vector3.zero;
         tr_ball.localRotation = Quaternion.identity;
@@ -71,10 +74,10 @@ public class PlayerAgent_Offense : Agent
         rb_ball.angularVelocity = Vector3.zero;
         rb_ball.velocity = Vector3.zero;
 
-        float xPos = UnityEngine.Random.Range(-shootPositionRange, shootPositionRange);
+        var xPos = Random.Range(-shootPositionRange, shootPositionRange);
         tr_ball.localPosition = new Vector3(xPos, 0.4f, -7.45f);
 
-        Vector3 controlSignal = keepGoal.position - tr_ball.position;
+        var controlSignal = keepGoal.position - tr_ball.position;
         controlSignal.Normalize();
         rb_ball.AddForce(controlSignal * kickInPower);
     }
@@ -95,9 +98,9 @@ public class PlayerAgent_Offense : Agent
 
     public override void OnActionReceived(float[] vectorAction)
     {
-        int kickForceAmplification = 200;
+        var kickForceAmplification = 200;
         // Actions, size = 1 //weil nur Drehung der einen Achse, würde ich sagen.
-        Vector3 controlSignal = Vector3.zero;
+        var controlSignal = Vector3.zero;
         controlSignal.x = vectorAction[0] * kickForceAmplification;
         pole.AddTorque(controlSignal);
 
@@ -122,10 +125,7 @@ public class PlayerAgent_Offense : Agent
             ballCollides.touchedHomeZone = false;
         }
 
-        if (SlowDownTheBall())
-        {
-            SetReward(0.3f);
-        }
+        if (SlowDownTheBall()) SetReward(0.3f);
 
         // Reached target
         if (ballCollides.touchedTarget)
@@ -145,44 +145,39 @@ public class PlayerAgent_Offense : Agent
             EndEpisode();
         }
 
-        cumulativeReward.text = vectorAction[0].ToString("R") + " // " +GetCumulativeReward().ToString("R");
+        cumulativeReward.text = vectorAction[0].ToString("R") + " // " + GetCumulativeReward().ToString("R");
     }
 
     //wenn jetzt die Beschleunigung viel kleiner ist als beim letzten Mal gibts reward
     private bool SlowDownTheBall()
     {
-        if( ! ballCollides.touchedPlayer )
-        {
-            return false;
-        }
-        float thisVelocity = Mathf.Abs(rb_ball.velocity.z);
+        if (!ballCollides.touchedPlayer) return false;
+        var thisVelocity = Mathf.Abs(rb_ball.velocity.z);
         if (thisVelocity < lastVelocity)
         {
             // Debug.Log("SlowDownBall");
             lastVelocity = thisVelocity;
             return true;
         }
+
         lastVelocity = thisVelocity;
         return false;
     }
 
     private bool BallOut()
     {
-        if (tr_ball.position.y > 2 || tr_ball.position.y < 0)
-        {
-            return true;
-        }
+        if (tr_ball.position.y > 2 || tr_ball.position.y < 0) return true;
         return false;
     }
 
     /// <summary>
-    /// return true if the ball has not moved over a period of time
+    ///     return true if the ball has not moved over a period of time
     /// </summary>
     /// <returns></returns>
     private bool BallRest()
     {
         //ball is moving constantly
-        if (Mathf.Abs(rb_ball.velocity.x) > ballRestThreshold || 
+        if (Mathf.Abs(rb_ball.velocity.x) > ballRestThreshold ||
             Mathf.Abs(rb_ball.velocity.y) > ballRestThreshold ||
             Mathf.Abs(rb_ball.velocity.z) > ballRestThreshold)
         {
@@ -196,6 +191,7 @@ public class PlayerAgent_Offense : Agent
             ballRestBegin = Time.time;
             return true;
         }
+
         return false;
     }
 
