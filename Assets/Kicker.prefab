@@ -296,7 +296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3161839204142195416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: -7.45}
+  m_LocalPosition: {x: 0, y: 0.4, z: -1.03}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 3161839204936946180}
@@ -920,7 +920,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 96
   m_CollisionDetection: 0
 --- !u!1 &3161839204936946179
 GameObject:
@@ -1250,7 +1250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3161839205618573694}
-  - component: {fileID: 3161839205618573693}
+  - component: {fileID: 8371732792071152321}
   - component: {fileID: 3161839205618573680}
   - component: {fileID: 3161839205618573695}
   m_Layer: 0
@@ -1274,7 +1274,7 @@ Transform:
   m_Father: {fileID: 3741745875834843276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3161839205618573693
+--- !u!114 &8371732792071152321
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1283,20 +1283,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 3161839205618573692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818b733dee825944cb0801bc9aacb511, type: 3}
+  m_Script: {fileID: 11500000, guid: 4442581d170b47d9807d7e17c007b89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 500
   pole: {fileID: 3161839204872564712}
   ball: {fileID: 3161839204142195416}
   target: {fileID: 3161839205159048645}
   keepGoal: {fileID: 3161839205621434819}
-  kickPower: 700
-  ballRestThreshold: 1.5
-  ballRestTimeout: 3
+  kickInPower: 10
+  ballRestThreshold: 0.0002
+  ballRestTimeout: 1.5
   shootPositionRange: 4
   cumulativeReward: {fileID: 9190833743451027457}
 --- !u!114 &3161839205618573680
