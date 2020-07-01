@@ -54,3 +54,6 @@ Thumbs.db.meta
 
 #vscode debug settings
 .vscode/launch.json
+
+#rider settings
+.idea/
