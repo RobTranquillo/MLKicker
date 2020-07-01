@@ -6,7 +6,11 @@ using Unity.MLAgents.Sensors;
 using System;
 using UnityEngine.UI;
 
-public class PlayerAgent : Agent
+
+/// <summary>
+/// Der Player soll erstmal nur den Ball los kicken Richtung Tor 
+/// </summary>
+public class PlayerAgent_Offense : Agent
 {
     public Rigidbody pole;
     private Transform tr_pole;
@@ -20,8 +24,8 @@ public class PlayerAgent : Agent
 
     public Transform target;
     public Transform keepGoal;
-    public float kickPower = 10;
-    [Tooltip("Movement threshold below which the ball is at rest")]
+    public float kickInPower = 10;
+    [Tooltip("Velocity threshold below which the ball is defined at rest")]
     public float ballRestThreshold = 1f;
     [Tooltip("Reset the ball after period of time without moving")]
     public float ballRestTimeout = 3f;
@@ -29,6 +33,7 @@ public class PlayerAgent : Agent
     public float shootPositionRange = 4;
     private float lastVelocity = 0f;
     private Collides ballCollides;
+    private Vector3 ballDefaultPosition;
     
     [Header("Debug Output")]
     public TMPro.TMP_Text cumulativeReward;    
@@ -42,14 +47,23 @@ public class PlayerAgent : Agent
         pole_position = tr_pole.position;
         pole_rotation = tr_pole.rotation;
         shootPositionRange = shootPositionRange/2;
-        KickInTheBall();
+        ballDefaultPosition = tr_ball.localPosition;
     }
 
     public override void OnEpisodeBegin()
     {
         tr_pole.position = pole_position;
         tr_pole.rotation = pole_rotation;
-        KickInTheBall();
+        // KickInTheBall();
+        CenterTheBall();
+    }
+
+    private void CenterTheBall()
+    {
+        tr_ball.localPosition = ballDefaultPosition;
+        rb_ball.velocity = Vector3.zero;
+        rb_ball.angularVelocity = Vector3.zero;
+        tr_ball.localRotation = Quaternion.identity;
     }
 
     private void KickInTheBall()
@@ -62,7 +76,7 @@ public class PlayerAgent : Agent
 
         Vector3 controlSignal = keepGoal.position - tr_ball.position;
         controlSignal.Normalize();
-        rb_ball.AddForce(controlSignal * kickPower);
+        rb_ball.AddForce(controlSignal * kickInPower);
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -81,9 +95,10 @@ public class PlayerAgent : Agent
 
     public override void OnActionReceived(float[] vectorAction)
     {
+        int kickForceAmplification = 200;
         // Actions, size = 1 //weil nur Drehung der einen Achse, würde ich sagen.
         Vector3 controlSignal = Vector3.zero;
-        controlSignal.x = vectorAction[0] * 200;
+        controlSignal.x = vectorAction[0] * kickForceAmplification;
         pole.AddTorque(controlSignal);
 
         // sudden deaths
@@ -95,6 +110,7 @@ public class PlayerAgent : Agent
 
         if (BallRest())
         {
+            Debug.Log("REST!");
             EndEpisode();
         }
 
@@ -129,7 +145,7 @@ public class PlayerAgent : Agent
             EndEpisode();
         }
 
-        cumulativeReward.text = GetCumulativeReward().ToString("R");
+        cumulativeReward.text = vectorAction[0].ToString("R") + " // " +GetCumulativeReward().ToString("R");
     }
 
     //wenn jetzt die Beschleunigung viel kleiner ist als beim letzten Mal gibts reward
@@ -165,14 +181,16 @@ public class PlayerAgent : Agent
     /// <returns></returns>
     private bool BallRest()
     {
-        //wenn keine Bewegung auftritt
-        if (Mathf.Abs(rb_ball.velocity.x) > ballRestThreshold && Mathf.Abs(rb_ball.velocity.z) > ballRestThreshold )
+        //ball is moving constantly
+        if (Mathf.Abs(rb_ball.velocity.x) > ballRestThreshold || 
+            Mathf.Abs(rb_ball.velocity.y) > ballRestThreshold ||
+            Mathf.Abs(rb_ball.velocity.z) > ballRestThreshold)
         {
             ballRestBegin = Time.time;
             return false;
         }
 
-        //wenn Ball längere Zeit geruht hat
+        //if the ball rests a period of time
         if (Time.time > ballRestBegin + ballRestTimeout)
         {
             ballRestBegin = Time.time;
