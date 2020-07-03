@@ -78,15 +78,31 @@ public class PlayerAgent_Offense : Agent
 
     public override void OnActionReceived(float[] vectorAction)
     {
+        ApplyActions(vectorAction);
+        YieldRewards();
+        
+        //Debug Output
+        cumulativeReward.text = GetCumulativeReward().ToString("R");
+        // lineTwo.text = vectorAction[0].ToString("F");
+    }
+
+
+    private void ApplyActions(float[] vectorAction)
+    {
         var kickForceAmplification = 20;
         var poleDragAmplification = 10;
         var controlSignal = Vector3.zero;
         
         // Actions, size = 2 //weil Drehung um die Achse und schieben der Stange
         controlSignal.x = vectorAction[0] * kickForceAmplification;
+        
+        //just add physical forces 
         pole.AddTorque(controlSignal);
         pole.AddForce(vectorAction[1] * poleDragAmplification, 0, 0);
+    }
 
+    private void YieldRewards()
+    {
         // sudden deaths
         if (BallOut())
         {
@@ -133,9 +149,6 @@ public class PlayerAgent_Offense : Agent
             _ballColliders.ResetValues();
             EndEpisode();
         }
-
-        cumulativeReward.text = GetCumulativeReward().ToString("R");
-        // lineTwo.text = accuracyReward.ToString("F") +" | "+ aberration.ToString("F");
     }
 
     /// <summary>
