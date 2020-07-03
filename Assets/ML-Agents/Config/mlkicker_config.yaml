@@ -1,0 +1,36 @@
+﻿﻿# Diese Datei muss sich in ml-agents befinden: C:\Users\Rob\Documents\Unity\_playground\ml-agents\config\mlkicker_config.yaml
+# Sie im MLKicker Reppo zu ändern bewirkt garnichts
+
+# https://github.com/Unity-Technologies/ml-agents/blob/release_1/docs/Training-Configuration-File.md
+
+MLKicker:
+
+  # Common Trainer Configurations
+  trainer: ppo
+  summary_freq: 10000
+  batch_size: 3000
+  buffer_size: 300000
+  hidden_units: 128
+  learning_rate: 1e-4
+  learning_rate_schedule: linear
+  max_steps: 5.0e5
+  normalize: false
+  num_layers: 2
+  time_horizon: 128
+
+  # PPO-specific Configurations
+  beta: 5.0e-3
+  epsilon: 0.2
+  lambd: 0.935
+  num_epoch: 5
+
+  # Reward Signals
+  reward_signals:
+    extrinsic:
+      strength: 1.0
+      gamma: 0.99
+
+  # Memory-enhanced Agents using Recurrent Neural Networks
+  use_recurrent: false
+  sequence_length: 64
+  memory_size: 128
