@@ -28,7 +28,7 @@ public class PlayerAgent_Defense: Agent
     private float ballRestBegin = 0;
     public float shootPositionRange = 4;
     private float lastVelocity = 0f;
-    private Collides ballCollides;
+    private Colliders _ballColliders;
     
     [Header("Debug Output")]
     public TMPro.TMP_Text cumulativeReward;    
@@ -38,7 +38,7 @@ public class PlayerAgent_Defense: Agent
         rb_ball = ball.GetComponent<Rigidbody>();
         tr_ball = ball.GetComponent<Transform>();
         tr_pole = pole.GetComponent<Transform>();
-        ballCollides = ball.GetComponent<Collides>();
+        _ballColliders = ball.GetComponent<Colliders>();
         pole_position = tr_pole.position;
         pole_rotation = tr_pole.rotation;
         shootPositionRange = shootPositionRange/2;
@@ -99,11 +99,11 @@ public class PlayerAgent_Defense: Agent
         }
 
         // Rewards
-        if (ballCollides.touchedHomeZone)
+        if (_ballColliders.touchedHomeZone)
         {
             // Debug.Log("Strafraum");
             SetReward(-0.3f);
-            ballCollides.touchedHomeZone = false;
+            _ballColliders.touchedHomeZone = false;
         }
 
         if (SlowDownTheBall())
@@ -112,20 +112,20 @@ public class PlayerAgent_Defense: Agent
         }
 
         // Reached target
-        if (ballCollides.touchedTarget)
+        if (_ballColliders.touchedTarget)
         {
             // Debug.Log("Toooor");
             SetReward(1.0f);
-            ballCollides.ResetValues();
+            _ballColliders.ResetValues();
             EndEpisode();
         }
 
         // Tor kassiert
-        if (ballCollides.touchedSelfGoal)
+        if (_ballColliders.touchedSelfGoal)
         {
             // Debug.Log("EIGENTOR");
             SetReward(-1.0f);
-            ballCollides.ResetValues();
+            _ballColliders.ResetValues();
             EndEpisode();
         }
 
@@ -135,7 +135,7 @@ public class PlayerAgent_Defense: Agent
     //wenn jetzt die Beschleunigung viel kleiner ist als beim letzten Mal gibts reward
     private bool SlowDownTheBall()
     {
-        if( ! ballCollides.touchedPlayer )
+        if( ! _ballColliders.touchedPlayer )
         {
             return false;
         }
