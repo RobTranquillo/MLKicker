@@ -58,6 +58,7 @@ Thumbs.db.meta
 #rider settings
 .idea/
 
-#ignore brain
+#ignore brain / tensorflow related
 Brain/
 Brain.meta
+/Assets/ML-Agents/Timers/SampleScene_timers.json
