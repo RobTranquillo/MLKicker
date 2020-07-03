@@ -8,40 +8,43 @@ using UnityEngine;
 /// </summary>
 public class PlayerAgent_Offense : Agent
 {
-    public GameObject ball;
-    private Collides ballCollides;
+    private Colliders _ballColliders;
     private Vector3 ballDefaultPosition;
     private float ballRestBegin;
+    private SphereCollider cl_ball;
+    private float lastVelocity;
+    private Vector3 pole_position;
+    private Quaternion pole_rotation;
+    private Rigidbody rb_ball;
+    private Transform tr_ball;
+    private Transform tr_pole;
+    
+    [Header("Training settings")]
+    public GameObject ball;
 
     [Tooltip("Velocity threshold below which the ball is defined at rest")]
     public float ballRestThreshold = 1f;
 
     [Tooltip("Reset the ball after period of time without moving")]
     public float ballRestTimeout = 3f;
-
-    private SphereCollider cl_ball;
-
-    [Header("Debug Output")] public TMP_Text cumulativeReward;
-
+    
+    public Transform target;
     public Transform keepGoal;
     public float kickInPower = 10;
-    private float lastVelocity;
     public Rigidbody pole;
-    private Vector3 pole_position;
-    private Quaternion pole_rotation;
-    private Rigidbody rb_ball;
     public float shootPositionRange = 4;
 
-    public Transform target;
-    private Transform tr_ball;
-    private Transform tr_pole;
 
+    [Header("Debug Output")] 
+    public TMP_Text cumulativeReward;
+    public TMP_Text lineTwo;    
+    
     private void Start()
     {
         rb_ball = ball.GetComponent<Rigidbody>();
         tr_ball = ball.GetComponent<Transform>();
         tr_pole = pole.GetComponent<Transform>();
-        ballCollides = ball.GetComponent<Collides>();
+        _ballColliders = ball.GetComponent<Colliders>();
         pole_position = tr_pole.position;
         pole_rotation = tr_pole.rotation;
         shootPositionRange = shootPositionRange / 2;
@@ -81,7 +84,7 @@ public class PlayerAgent_Offense : Agent
         controlSignal.Normalize();
         rb_ball.AddForce(controlSignal * kickInPower);
     }
-
+    
     public override void CollectObservations(VectorSensor sensor)
     {
         //Grundlage für Einstellung in Vector Observation > Space Size
@@ -98,11 +101,14 @@ public class PlayerAgent_Offense : Agent
 
     public override void OnActionReceived(float[] vectorAction)
     {
-        var kickForceAmplification = 200;
-        // Actions, size = 1 //weil nur Drehung der einen Achse, würde ich sagen.
+        var kickForceAmplification = 20;
+        var poleDragAmplification = 10;
         var controlSignal = Vector3.zero;
+        
+        // Actions, size = 2 //weil Drehung um die Achse und schieben der Stange
         controlSignal.x = vectorAction[0] * kickForceAmplification;
         pole.AddTorque(controlSignal);
+        pole.AddForce(vectorAction[1] * poleDragAmplification, 0, 0);
 
         // sudden deaths
         if (BallOut())
@@ -110,48 +116,73 @@ public class PlayerAgent_Offense : Agent
             Debug.Log("Out!");
             EndEpisode();
         }
+        
+        //for precise kicks towards the goal
+        AddReward(AimingAccuracy());
 
         if (BallRest())
         {
-            Debug.Log("REST!");
+            // Debug.Log("REST!");
+            SetReward(-0.3f);
             EndEpisode();
         }
 
         // Rewards
-        if (ballCollides.touchedHomeZone)
+        if (_ballColliders.touchedHomeZone)
         {
             // Debug.Log("Strafraum");
-            SetReward(-0.3f);
-            ballCollides.touchedHomeZone = false;
+            AddReward(-0.3f);
+            _ballColliders.touchedHomeZone = false;
         }
 
-        if (SlowDownTheBall()) SetReward(0.3f);
+        // if (SlowDownTheBall()) 
+        //     AddReward(0.3f);
 
         // Reached target
-        if (ballCollides.touchedTarget)
+        if (_ballColliders.touchedTarget)
         {
             // Debug.Log("Toooor");
-            SetReward(1.0f);
-            ballCollides.ResetValues();
+            AddReward(1.0f);
+            _ballColliders.ResetValues();
             EndEpisode();
         }
 
         // Tor kassiert
-        if (ballCollides.touchedSelfGoal)
+        if (_ballColliders.touchedSelfGoal)
         {
             // Debug.Log("EIGENTOR");
-            SetReward(-1.0f);
-            ballCollides.ResetValues();
+            AddReward(-1.0f);
+            _ballColliders.ResetValues();
             EndEpisode();
         }
 
-        cumulativeReward.text = vectorAction[0].ToString("R") + " // " + GetCumulativeReward().ToString("R");
+        cumulativeReward.text = GetCumulativeReward().ToString("R");
+        // lineTwo.text = accuracyReward.ToString("F") +" | "+ aberration.ToString("F");
     }
 
-    //wenn jetzt die Beschleunigung viel kleiner ist als beim letzten Mal gibts reward
+    private float maxAberration = 10f;
+    private float accuracyReward = 0;
+    private float aberration = 555;
+    private float AimingAccuracy()
+    {
+        //just in the moment of touching
+        if (_ballColliders.touchedPlayer || _ballColliders.touchedPole)
+        {
+            var goalDirection = target.position - tr_ball.position;
+            aberration = Vector3.Angle(goalDirection, rb_ball.velocity);
+            accuracyReward = 1 - (aberration / maxAberration);
+            return accuracyReward > 0 ? accuracyReward : 0;
+        }
+        return 0;
+    }
+    
+    /// <summary>
+    /// defense tactic of slowing down the ball
+    /// </summary>
+    /// <returns></returns>
     private bool SlowDownTheBall()
     {
-        if (!ballCollides.touchedPlayer) return false;
+        if (!_ballColliders.touchedPlayer) return false;
         var thisVelocity = Mathf.Abs(rb_ball.velocity.z);
         if (thisVelocity < lastVelocity)
         {
@@ -171,11 +202,15 @@ public class PlayerAgent_Offense : Agent
     }
 
     /// <summary>
-    ///     return true if the ball has not moved over a period of time
+    /// return true if the ball has not moved over a period of time
     /// </summary>
     /// <returns></returns>
     private bool BallRest()
     {
+        // false, as long as playful actions are still possible
+        if (Mathf.Abs(tr_ball.localPosition.z) < 2f)
+            return false;
+        
         //ball is moving constantly
         if (Mathf.Abs(rb_ball.velocity.x) > ballRestThreshold ||
             Mathf.Abs(rb_ball.velocity.y) > ballRestThreshold ||
@@ -191,12 +226,12 @@ public class PlayerAgent_Offense : Agent
             ballRestBegin = Time.time;
             return true;
         }
-
         return false;
     }
 
     public override void Heuristic(float[] actionsOut)
     {
         actionsOut[0] = Input.GetAxis("Vertical");
+        actionsOut[1] = Input.GetAxis("Horizontal");
     }
 }
