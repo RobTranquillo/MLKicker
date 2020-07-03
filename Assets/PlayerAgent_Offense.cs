@@ -4,21 +4,25 @@ using Unity.MLAgents.Sensors;
 using UnityEngine;
 
 /// <summary>
-///     Der Player soll erstmal nur den Ball los kicken Richtung Tor
+///  Class for an offensive playing mind 
 /// </summary>
 public class PlayerAgent_Offense : Agent
 {
     private Colliders _ballColliders;
-    private Vector3 ballDefaultPosition;
-    private float ballRestBegin;
-    private SphereCollider cl_ball;
-    private float lastVelocity;
-    private Vector3 pole_position;
-    private Quaternion pole_rotation;
-    private Rigidbody rb_ball;
-    private Transform tr_ball;
-    private Transform tr_pole;
+    private Vector3 _ballDefaultPosition;
+    private float _ballRestBegin;
+    private float _lastVelocity;
+    private Vector3 _polePosition;
+    private Quaternion _poleRotation;
+    private Rigidbody _rbBall;
+    private Transform _trBall;
+    private Transform _trPole;
     
+    private float maxAberration = 10f;
+    private float _accuracyReward = 0;
+    private float _aberration = 555;
+    private float _lastGoalDistance = 0;
+
     [Header("Training settings")]
     public GameObject ball;
 
@@ -41,50 +45,23 @@ public class PlayerAgent_Offense : Agent
     
     private void Start()
     {
-        rb_ball = ball.GetComponent<Rigidbody>();
-        tr_ball = ball.GetComponent<Transform>();
-        tr_pole = pole.GetComponent<Transform>();
+        _rbBall = ball.GetComponent<Rigidbody>();
+        _trBall = ball.GetComponent<Transform>();
+        _trPole = pole.GetComponent<Transform>();
         _ballColliders = ball.GetComponent<Colliders>();
-        pole_position = tr_pole.position;
-        pole_rotation = tr_pole.rotation;
+        _polePosition = _trPole.position;
+        _poleRotation = _trPole.rotation;
         shootPositionRange = shootPositionRange / 2;
-        ballDefaultPosition = tr_ball.localPosition;
+        _ballDefaultPosition = _trBall.localPosition;
     }
 
     public override void OnEpisodeBegin()
     {
-        tr_pole.position = pole_position;
-        tr_pole.rotation = pole_rotation;
-        // KickInTheBall();
+        _trPole.position = _polePosition;
+        _trPole.rotation = _poleRotation;
         SpawnTheBall();
     }
 
-    /// <summary>
-    ///     place the ball randomly
-    /// </summary>
-    private void SpawnTheBall()
-    {
-        var pos = ballDefaultPosition;
-        pos.x = Random.Range(-4.4f, 4.4f);
-        tr_ball.localPosition = pos;
-        rb_ball.velocity = Vector3.zero;
-        rb_ball.angularVelocity = Vector3.zero;
-        tr_ball.localRotation = Quaternion.identity;
-    }
-
-    private void KickInTheBall()
-    {
-        rb_ball.angularVelocity = Vector3.zero;
-        rb_ball.velocity = Vector3.zero;
-
-        var xPos = Random.Range(-shootPositionRange, shootPositionRange);
-        tr_ball.localPosition = new Vector3(xPos, 0.4f, -7.45f);
-
-        var controlSignal = keepGoal.position - tr_ball.position;
-        controlSignal.Normalize();
-        rb_ball.AddForce(controlSignal * kickInPower);
-    }
-    
     public override void CollectObservations(VectorSensor sensor)
     {
         //Grundlage für Einstellung in Vector Observation > Space Size
@@ -93,7 +70,7 @@ public class PlayerAgent_Offense : Agent
         // Target and Agent positions
         sensor.AddObservation(target.localPosition);
         sensor.AddObservation(keepGoal.localPosition);
-        sensor.AddObservation(tr_ball.localPosition);
+        sensor.AddObservation(_trBall.localPosition);
 
         // Agent velocity
         sensor.AddObservation(pole.rotation.eulerAngles.x);
@@ -119,6 +96,8 @@ public class PlayerAgent_Offense : Agent
         
         //for precise kicks towards the goal
         AddReward(AimingAccuracy());
+        
+        //AddReward(TargetApproximation());
 
         if (BallRest())
         {
@@ -160,18 +139,58 @@ public class PlayerAgent_Offense : Agent
         // lineTwo.text = accuracyReward.ToString("F") +" | "+ aberration.ToString("F");
     }
 
-    private float maxAberration = 10f;
-    private float accuracyReward = 0;
-    private float aberration = 555;
+    /// <summary>
+    /// reward for moving the ball closer to the goal   
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    private float TargetApproximation()
+    {
+        float goalDistance = Vector3.Distance(_trBall.position, target.position);
+        if (_lastGoalDistance >= goalDistance)
+            return 0;
+        return 0.1f;
+    }
+
+    /// <summary>
+    ///     place the ball randomly
+    /// </summary>
+    private void SpawnTheBall()
+    {
+        var pos = _ballDefaultPosition;
+        pos.x = Random.Range(-4.4f, 4.4f);
+        _trBall.localPosition = pos;
+        _rbBall.velocity = Vector3.zero;
+        _rbBall.angularVelocity = Vector3.zero;
+        _trBall.localRotation = Quaternion.identity;
+    }
+
+    private void KickInTheBall()
+    {
+        _rbBall.angularVelocity = Vector3.zero;
+        _rbBall.velocity = Vector3.zero;
+
+        var xPos = Random.Range(-shootPositionRange, shootPositionRange);
+        _trBall.localPosition = new Vector3(xPos, 0.4f, -7.45f);
+
+        var controlSignal = keepGoal.position - _trBall.position;
+        controlSignal.Normalize();
+        _rbBall.AddForce(controlSignal * kickInPower);
+    }
+  
+    /// <summary>
+    /// reward for kicking the ball towards the goal
+    /// </summary>
+    /// <returns></returns>
     private float AimingAccuracy()
     {
         //just in the moment of touching
         if (_ballColliders.touchedPlayer || _ballColliders.touchedPole)
         {
-            var goalDirection = target.position - tr_ball.position;
-            aberration = Vector3.Angle(goalDirection, rb_ball.velocity);
-            accuracyReward = 1 - (aberration / maxAberration);
-            return accuracyReward > 0 ? accuracyReward : 0;
+            var goalDirection = target.position - _trBall.position;
+            _aberration = Vector3.Angle(goalDirection, _rbBall.velocity);
+            _accuracyReward = 1 - (_aberration / maxAberration);
+            return _accuracyReward > 0 ? _accuracyReward : 0;
         }
         return 0;
     }
@@ -183,21 +202,21 @@ public class PlayerAgent_Offense : Agent
     private bool SlowDownTheBall()
     {
         if (!_ballColliders.touchedPlayer) return false;
-        var thisVelocity = Mathf.Abs(rb_ball.velocity.z);
-        if (thisVelocity < lastVelocity)
+        var thisVelocity = Mathf.Abs(_rbBall.velocity.z);
+        if (thisVelocity < _lastVelocity)
         {
             // Debug.Log("SlowDownBall");
-            lastVelocity = thisVelocity;
+            _lastVelocity = thisVelocity;
             return true;
         }
 
-        lastVelocity = thisVelocity;
+        _lastVelocity = thisVelocity;
         return false;
     }
 
     private bool BallOut()
     {
-        if (tr_ball.position.y > 2 || tr_ball.position.y < 0) return true;
+        if (_trBall.position.y > 2 || _trBall.position.y < 0) return true;
         return false;
     }
 
@@ -208,22 +227,22 @@ public class PlayerAgent_Offense : Agent
     private bool BallRest()
     {
         // false, as long as playful actions are still possible
-        if (Mathf.Abs(tr_ball.localPosition.z) < 2f)
+        if (Mathf.Abs(_trBall.localPosition.z) < 2f)
             return false;
         
         //ball is moving constantly
-        if (Mathf.Abs(rb_ball.velocity.x) > ballRestThreshold ||
-            Mathf.Abs(rb_ball.velocity.y) > ballRestThreshold ||
-            Mathf.Abs(rb_ball.velocity.z) > ballRestThreshold)
+        if (Mathf.Abs(_rbBall.velocity.x) > ballRestThreshold ||
+            Mathf.Abs(_rbBall.velocity.y) > ballRestThreshold ||
+            Mathf.Abs(_rbBall.velocity.z) > ballRestThreshold)
         {
-            ballRestBegin = Time.time;
+            _ballRestBegin = Time.time;
             return false;
         }
 
         //if the ball rests a period of time
-        if (Time.time > ballRestBegin + ballRestTimeout)
+        if (Time.time > _ballRestBegin + ballRestTimeout)
         {
-            ballRestBegin = Time.time;
+            _ballRestBegin = Time.time;
             return true;
         }
         return false;
