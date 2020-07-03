@@ -96,13 +96,12 @@ public class PlayerAgent_Offense : Agent
         
         //for precise kicks towards the goal
         AddReward(AimingAccuracy());
-        
-        //AddReward(TargetApproximation());
+        AddReward(TargetApproximation());
 
         if (BallRest())
         {
             // Debug.Log("REST!");
-            SetReward(-0.3f);
+            AddReward(-0.3f);
             EndEpisode();
         }
 
@@ -140,16 +139,22 @@ public class PlayerAgent_Offense : Agent
     }
 
     /// <summary>
-    /// reward for moving the ball closer to the goal   
+    /// reward for moving the ball closer to the goal
+    /// if just check _lastGoalDistance > goalDistance, model optimizes for most slowly hit the goal 
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     private float TargetApproximation()
     {
         float goalDistance = Vector3.Distance(_trBall.position, target.position);
-        if (_lastGoalDistance >= goalDistance)
+        if (_lastGoalDistance - goalDistance <= 0.05f)
+        {
+            _lastGoalDistance = goalDistance;
             return 0;
-        return 0.1f;
+        }
+
+        _lastGoalDistance = goalDistance;
+        return 0.01f;
     }
 
     /// <summary>
