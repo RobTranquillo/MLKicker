@@ -23,6 +23,14 @@ public class PlayerAgent_Offense : Agent
     private float _aberration = 555;
     private float _lastGoalDistance = 0;
 
+    [Header("Physicals")]
+    public Transform target;
+    public Transform keepGoal;
+    public Transform Player1Foot;
+    public Transform Player2Foot;
+    public Transform Player3Foot;
+
+
     [Header("Training settings")]
     public GameObject ball;
 
@@ -32,8 +40,6 @@ public class PlayerAgent_Offense : Agent
     [Tooltip("Reset the ball after period of time without moving")]
     public float ballRestTimeout = 3f;
     
-    public Transform target;
-    public Transform keepGoal;
     public float kickInPower = 10;
     public Rigidbody pole;
     public float shootPositionRange = 4;
@@ -67,13 +73,27 @@ public class PlayerAgent_Offense : Agent
         //Grundlage für Einstellung in Vector Observation > Space Size
         //3x Vector3 + 1x float = 10
 
-        // Target and Agent positions
-        sensor.AddObservation(target.localPosition);
-        sensor.AddObservation(keepGoal.localPosition);
+        // 1x pos Ball                   = 3
+        // 3x pos of the kicker foot     = 3x3
+        // 3x rot of the kicker foot     = 3x4
+        // sum: = 24
         sensor.AddObservation(_trBall.localPosition);
+        sensor.AddObservation(Player1Foot.localPosition);
+        sensor.AddObservation(Player1Foot.localRotation);
+        sensor.AddObservation(Player2Foot.localPosition);
+        sensor.AddObservation(Player2Foot.localRotation);
+        sensor.AddObservation(Player3Foot.localPosition);
+        sensor.AddObservation(Player3Foot.localRotation);
 
-        // Agent velocity
-        sensor.AddObservation(pole.rotation.eulerAngles.x);
+        //Grundlage für Einstellung in Vector Observation > Space Size
+        //3x Vector3 + 1x float = 10
+        // Target and Agent positions
+        // sensor.AddObservation(target.localPosition);
+        // sensor.AddObservation(keepGoal.localPosition);
+        // sensor.AddObservation(_trBall.localPosition);
+        //
+        // // Agent velocity
+        // sensor.AddObservation(pole.rotation.eulerAngles.x);
     }
 
     public override void OnActionReceived(float[] vectorAction)
