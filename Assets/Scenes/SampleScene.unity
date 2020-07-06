@@ -1716,42 +1716,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_BehaviorType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_Model
-      value: 
-      objectReference: {fileID: 5022602860645237092, guid: f128e012505801f4ba69c667a37c6934,
-        type: 3}
-    - target: {fileID: 3644202332003583393, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3644202332003583393, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3644202332003583393, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3644202332003583393, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3644202332003583393, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
