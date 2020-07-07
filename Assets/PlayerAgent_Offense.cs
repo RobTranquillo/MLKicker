@@ -46,7 +46,8 @@ public class PlayerAgent_Offense : Agent
     
     [Header("Debug Output")] 
     public TMP_Text cumulativeReward;
-    public TMP_Text lineTwo;    
+    public TMP_Text lineTwo;
+    public Statistics statistics;
     
     private void Start()
     {
@@ -62,6 +63,7 @@ public class PlayerAgent_Offense : Agent
 
     public override void OnEpisodeBegin()
     {
+        statistics.AddEpisode();
         _trPole.position = _poleDefaultPosition;
         _trPole.rotation = _poleDefaultRotation;
         SpawnTheBall();
@@ -115,14 +117,15 @@ public class PlayerAgent_Offense : Agent
         // sudden deaths
         if (BallOut() || PoleOut())
         {
-            Debug.Log("Out!");
+            statistics.AddOut();
             EndEpisode();
         }
         
         if (BallRest())
         {
-            // Debug.Log("REST!");
+            // Debug.Log("Ball rests");
             AddReward(-0.3f);
+            statistics.AddRest();
             EndEpisode();
         }
 
@@ -135,7 +138,7 @@ public class PlayerAgent_Offense : Agent
         
         if (_ballColliders.touchedHomeZone)
         {
-            // Debug.Log("Strafraum");
+            // Debug.Log("penalty area");
             AddReward(-0.3f);
             _ballColliders.touchedHomeZone = false;
         }
@@ -143,19 +146,17 @@ public class PlayerAgent_Offense : Agent
         // if (SlowDownTheBall()) 
         //     AddReward(0.3f);
 
-        // Reached target
+        // Toooor
         if (_ballColliders.touchedTarget)
         {
-            // Debug.Log("Toooor");
             AddReward(1.0f);
             _ballColliders.ResetValues();
             EndEpisode();
         }
 
-        // Tor kassiert
+        // doh, own goal
         if (_ballColliders.touchedSelfGoal)
         {
-            // Debug.Log("EIGENTOR");
             AddReward(-1.0f);
             _ballColliders.ResetValues();
             EndEpisode();
@@ -170,15 +171,18 @@ public class PlayerAgent_Offense : Agent
     {
         if (scoopNet.isTouched)
         {
+            // Debug.Log("Scoop Out!");
             scoopNet.Reset();
             return true;
         }
-        
+
         if (Mathf.Abs(_trPole.position.y - _poleDefaultPosition.y) > 3f ||
             Mathf.Abs(_trPole.position.z - _poleDefaultPosition.z) > 3f ||
-            _trPole.position.y < 0f)
+            _trPole.localPosition.y < 0f)
+        {
+            // Debug.Log("Positon Out!");
             return true;
-        
+        }
         return false;
     }
 
@@ -265,8 +269,11 @@ public class PlayerAgent_Offense : Agent
 
     private bool BallOut()
     {
-        if (Mathf.Abs(_trBall.position.y - _ballDefaultPosition.y) > 3f) 
+        if (Mathf.Abs(_trBall.localPosition.y - _ballDefaultPosition.y) > 3f)
+        {
+            // Debug.Log("Ball Out!");
             return true;
+        }
         return false;
     }
 
