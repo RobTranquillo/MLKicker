@@ -4,33 +4,26 @@ using UnityEngine;
 
 public class Statistics : MonoBehaviour
 {
-    private int episodes = 0;
-    private int outs = 0;
-    private int rests = 0;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    private int _episodes = 0;
+    private int _outs = 0;
+    private int _rests = 0;
 
     public void AddOut()
     {
-        outs++;
+        _outs++;
     }
     
     public void AddEpisode()
     {
-        episodes++;
-        if (episodes % 10 == 0)
+        _episodes++;
+        if (_episodes % 10 == 0)
         {
-            Debug.Log("episodes: " + episodes + " outs: " + outs + " rests: " + rests);
+            Debug.Log("episodes: " + _episodes + " outs: " + _outs + " rests: " + _rests);
         }
     }
 
     public void AddRest()
     {
-        rests++;
+        _rests++;
     }
 }
