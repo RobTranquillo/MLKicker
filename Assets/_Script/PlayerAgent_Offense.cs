@@ -35,6 +35,7 @@ public class PlayerAgent_Offense : Agent
     public GameObject ball;
 
     [Tooltip("Velocity threshold below which the ball is defined at rest")]
+    [Range(0f , 1f)]
     public float ballRestThreshold = 1f;
 
     [Tooltip("Reset the ball after period of time without moving")]
@@ -43,7 +44,10 @@ public class PlayerAgent_Offense : Agent
     public float kickInPower = 10;
     public float poleDragAmplification = 30;
     public Rigidbody pole;
-    public float shootPositionRange = 4;
+    
+    [Tooltip("The threshold of the ball speed above where reward is given. When exceeded and approaching the goal.")]
+    [Range(1,200)]
+    public float rewardedBallSpeed = 5;
     
     [Header("Debug Output")] 
     public TMP_Text cumulativeReward;
@@ -58,7 +62,6 @@ public class PlayerAgent_Offense : Agent
         _ballColliders = ball.GetComponent<Colliders>();
         _poleDefaultPosition = _trPole.position;
         _poleDefaultRotation = _trPole.rotation;
-        shootPositionRange = shootPositionRange / 2;
         _ballDefaultPosition = _trBall.localPosition;
     }
 
@@ -133,6 +136,8 @@ public class PlayerAgent_Offense : Agent
 
         // Rewards
 
+        AddReward(BallContact());
+        
         //for precise kicks towards the goal
         AddReward(AimingAccuracy());
         AddReward(TargetApproximation());
@@ -165,6 +170,19 @@ public class PlayerAgent_Offense : Agent
         }
     }
 
+    private float BallContact()
+    {
+        if (Mathf.Abs(_trBall.position.z - _trPole.position.z) > 1f)
+            return 0;
+        if (_ballColliders.touchedPlayer)
+        {
+            _ballColliders.touchedPlayer = false;
+            return 1f;
+        }
+        //if ball stays untouched
+        return -0.001f;
+    }
+
     /// <summary>
     /// If the pole bar is cracked out
     /// </summary>
@@ -189,15 +207,14 @@ public class PlayerAgent_Offense : Agent
     }
 
     /// <summary>
-    /// reward for moving the ball closer to the goal
-    /// if just check _lastGoalDistance > goalDistance, model optimizes for most slowly hit the goal 
+    /// reward for moving the ball closer to the goal fast
     /// </summary>
     /// <returns></returns>
     /// <exception cref="NotImplementedException"></exception>
     private float TargetApproximation()
     {
         float goalDistance = Vector3.Distance(_trBall.position, target.position);
-        if (_lastGoalDistance - goalDistance <= 0.05f)
+        if (_lastGoalDistance - goalDistance <= 1 / rewardedBallSpeed)
         {
             _lastGoalDistance = goalDistance;
             return 0;

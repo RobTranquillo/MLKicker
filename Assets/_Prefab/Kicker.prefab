@@ -1800,7 +1800,7 @@ MonoBehaviour:
   kickInPower: 40
   poleDragAmplification: 30
   pole: {fileID: 3161839204872564712}
-  shootPositionRange: 4
+  rewardedBallSpeed: 5
   cumulativeReward: {fileID: 9190833743451027457}
   lineTwo: {fileID: 3644202332003583393}
   statistics: {fileID: 0}

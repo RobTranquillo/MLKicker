@@ -227,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -434,7 +434,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -690,7 +690,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -854,7 +854,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1101,7 +1101,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1265,7 +1265,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1429,7 +1429,7 @@ PrefabInstance:
     - target: {fileID: 7114890672292842141, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8279697170695600077, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1807,7 +1807,7 @@ PrefabInstance:
     - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_BehaviorType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1884,6 +1884,16 @@ PrefabInstance:
       propertyPath: statistics
       value: 
       objectReference: {fileID: 462788516}
+    - target: {fileID: 8371732792071152321, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: rewardedBallSpeed
+      value: 51.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371732792071152321, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: ballRestThreshold
+      value: 0.595
+      objectReference: {fileID: 0}
     - target: {fileID: 9112799589607660913, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_Mesh
