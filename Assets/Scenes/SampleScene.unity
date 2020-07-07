@@ -1304,11 +1304,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_BehaviorType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1379,11 +1374,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kicker
       objectReference: {fileID: 0}
-    - target: {fileID: 8371732792071152321, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: statistics
-      value: 
-      objectReference: {fileID: 462788516}
     - target: {fileID: 9112799589607660913, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_Mesh
