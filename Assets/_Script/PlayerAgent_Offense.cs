@@ -97,7 +97,7 @@ public class PlayerAgent_Offense : Agent
         
         //Debug Output
         cumulativeReward.text = GetCumulativeReward().ToString("R");
-        lineTwo.text = vectorAction[1].ToString("F");
+        lineTwo.text = vectorAction[0].ToString("F") + " / " +  vectorAction[1].ToString("F");
     }
 
 
