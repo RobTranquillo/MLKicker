@@ -41,6 +41,7 @@ public class PlayerAgent_Offense : Agent
     public float ballRestTimeout = 3f;
     
     public float kickInPower = 10;
+    public float poleDragAmplification = 30;
     public Rigidbody pole;
     public float shootPositionRange = 4;
     
@@ -105,11 +106,9 @@ public class PlayerAgent_Offense : Agent
         // Actions, size = 2
         // [0] axis rotation
         // [1] pole bar dragging 
-        var kickForceAmplification = 40;
-        var poleDragAmplification = 30;
         var controlSignal = Vector3.zero;
         
-        controlSignal.x = vectorAction[0] * kickForceAmplification;
+        controlSignal.x = vectorAction[0] * kickInPower;
 
         //just add physical forces 
         pole.AddTorque(controlSignal);

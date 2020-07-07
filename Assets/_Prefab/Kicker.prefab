@@ -1797,7 +1797,7 @@ MonoBehaviour:
   ball: {fileID: 3161839204142195416}
   ballRestThreshold: 0.2
   ballRestTimeout: 3
-  kickInPower: 10
+  kickInPower: 40
   pole: {fileID: 3161839204872564712}
   shootPositionRange: 4
   cumulativeReward: {fileID: 9190833743451027457}
