@@ -12,12 +12,12 @@ public class PlayerAgent_Offense : Agent
     private Vector3 _ballDefaultPosition;
     private float _ballRestBegin;
     private float _lastVelocity;
-    private Vector3 _polePosition;
-    private Quaternion _poleRotation;
+    private Vector3 _poleDefaultPosition;
+    private Quaternion _poleDefaultRotation;
     private Rigidbody _rbBall;
     private Transform _trBall;
     private Transform _trPole;
-    
+
     private float maxAberration = 10f;
     private float _accuracyReward = 0;
     private float _aberration = 555;
@@ -26,10 +26,10 @@ public class PlayerAgent_Offense : Agent
     [Header("Physicals")]
     public Transform target;
     public Transform keepGoal;
-    public Transform Player1Foot;
-    public Transform Player2Foot;
-    public Transform Player3Foot;
-
+    public Transform player1Foot;
+    public Transform player2Foot;
+    public Transform player3Foot;
+    public CollisonDetector scoopNet;
 
     [Header("Training settings")]
     public GameObject ball;
@@ -43,8 +43,7 @@ public class PlayerAgent_Offense : Agent
     public float kickInPower = 10;
     public Rigidbody pole;
     public float shootPositionRange = 4;
-
-
+    
     [Header("Debug Output")] 
     public TMP_Text cumulativeReward;
     public TMP_Text lineTwo;    
@@ -55,45 +54,35 @@ public class PlayerAgent_Offense : Agent
         _trBall = ball.GetComponent<Transform>();
         _trPole = pole.GetComponent<Transform>();
         _ballColliders = ball.GetComponent<Colliders>();
-        _polePosition = _trPole.position;
-        _poleRotation = _trPole.rotation;
+        _poleDefaultPosition = _trPole.position;
+        _poleDefaultRotation = _trPole.rotation;
         shootPositionRange = shootPositionRange / 2;
         _ballDefaultPosition = _trBall.localPosition;
     }
 
     public override void OnEpisodeBegin()
     {
-        _trPole.position = _polePosition;
-        _trPole.rotation = _poleRotation;
+        _trPole.position = _poleDefaultPosition;
+        _trPole.rotation = _poleDefaultRotation;
         SpawnTheBall();
     }
 
     public override void CollectObservations(VectorSensor sensor)
     {
         //Grundlage für Einstellung in Vector Observation > Space Size
-        //3x Vector3 + 1x float = 10
-
         // 1x pos Ball                   = 3
-        // 3x pos of the kicker foot     = 3x3
-        // 3x rot of the kicker foot     = 3x4
-        // sum: = 24
         sensor.AddObservation(_trBall.localPosition);
-        sensor.AddObservation(Player1Foot.localPosition);
-        sensor.AddObservation(Player1Foot.localRotation);
-        sensor.AddObservation(Player2Foot.localPosition);
-        sensor.AddObservation(Player2Foot.localRotation);
-        sensor.AddObservation(Player3Foot.localPosition);
-        sensor.AddObservation(Player3Foot.localRotation);
-
-        //Grundlage für Einstellung in Vector Observation > Space Size
-        //3x Vector3 + 1x float = 10
-        // Target and Agent positions
-        // sensor.AddObservation(target.localPosition);
-        // sensor.AddObservation(keepGoal.localPosition);
-        // sensor.AddObservation(_trBall.localPosition);
-        //
-        // // Agent velocity
-        // sensor.AddObservation(pole.rotation.eulerAngles.x);
+        // 3x pos of the kicker foot     = 3x3
+        sensor.AddObservation(player1Foot.localPosition);
+        sensor.AddObservation(player2Foot.localPosition);
+        sensor.AddObservation(player3Foot.localPosition);
+        // 3x rot of the kicker foot     = 3x4
+        sensor.AddObservation(player1Foot.localRotation);
+        sensor.AddObservation(player2Foot.localRotation);
+        sensor.AddObservation(player3Foot.localRotation);
+        // 1x rot angle of the pole      = 1
+        sensor.AddObservation(pole.rotation.eulerAngles.x);
+        //                     sum:     = 25
     }
 
     public override void OnActionReceived(float[] vectorAction)
@@ -103,7 +92,7 @@ public class PlayerAgent_Offense : Agent
         
         //Debug Output
         cumulativeReward.text = GetCumulativeReward().ToString("R");
-        // lineTwo.text = vectorAction[0].ToString("F");
+        lineTwo.text = vectorAction[0].ToString("F");
     }
 
 
@@ -124,16 +113,12 @@ public class PlayerAgent_Offense : Agent
     private void YieldRewards()
     {
         // sudden deaths
-        if (BallOut())
+        if (BallOut() || PoleOut())
         {
             Debug.Log("Out!");
             EndEpisode();
         }
         
-        //for precise kicks towards the goal
-        AddReward(AimingAccuracy());
-        AddReward(TargetApproximation());
-
         if (BallRest())
         {
             // Debug.Log("REST!");
@@ -142,6 +127,12 @@ public class PlayerAgent_Offense : Agent
         }
 
         // Rewards
+
+        //for precise kicks towards the goal
+        AddReward(AimingAccuracy());
+        AddReward(TargetApproximation());
+        
+        
         if (_ballColliders.touchedHomeZone)
         {
             // Debug.Log("Strafraum");
@@ -169,6 +160,26 @@ public class PlayerAgent_Offense : Agent
             _ballColliders.ResetValues();
             EndEpisode();
         }
+    }
+
+    /// <summary>
+    /// If the pole bar is cracked out
+    /// </summary>
+    /// <returns></returns>
+    private bool PoleOut()
+    {
+        if (scoopNet.isTouched)
+        {
+            scoopNet.Reset();
+            return true;
+        }
+        
+        if (Mathf.Abs(_trPole.position.y - _poleDefaultPosition.y) > 3f ||
+            Mathf.Abs(_trPole.position.z - _poleDefaultPosition.z) > 3f ||
+            _trPole.position.y < 0f)
+            return true;
+        
+        return false;
     }
 
     /// <summary>
@@ -254,7 +265,8 @@ public class PlayerAgent_Offense : Agent
 
     private bool BallOut()
     {
-        if (_trBall.position.y > 2 || _trBall.position.y < 0) return true;
+        if (Mathf.Abs(_trBall.position.y - _ballDefaultPosition.y) > 3f) 
+            return true;
         return false;
     }
 
