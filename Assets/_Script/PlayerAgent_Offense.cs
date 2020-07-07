@@ -69,13 +69,23 @@ public class PlayerAgent_Offense : Agent
         _trPole.rotation = _poleDefaultRotation;
         SpawnTheBall();
     }
-
+    
+    public override void OnActionReceived(float[] vectorAction)
+    {
+        ApplyActions(vectorAction);
+        YieldRewards();
+        
+        //Debug Output
+        cumulativeReward.text = GetCumulativeReward().ToString("R");
+        lineTwo.text = vectorAction[0].ToString("F") + " / " +  vectorAction[1].ToString("F");
+    }
+    
     public override void CollectObservations(VectorSensor sensor)
     {
         //Grundlage für Einstellung in Vector Observation > Space Size
         // 1x pos Ball                   = 3
         sensor.AddObservation(_trBall.localPosition);        
-        // 1x velocity Ball                   = 3
+        // 1x velocity Ball              = 3
         sensor.AddObservation(_rbBall.velocity);
         // 3x pos of the kicker foot     = 3x3
         sensor.AddObservation(player1Foot.localPosition);
@@ -89,17 +99,6 @@ public class PlayerAgent_Offense : Agent
         sensor.AddObservation(pole.rotation.eulerAngles.x);
         //                     sum:     = 28
     }
-
-    public override void OnActionReceived(float[] vectorAction)
-    {
-        ApplyActions(vectorAction);
-        YieldRewards();
-        
-        //Debug Output
-        cumulativeReward.text = GetCumulativeReward().ToString("R");
-        lineTwo.text = vectorAction[0].ToString("F") + " / " +  vectorAction[1].ToString("F");
-    }
-
 
     private void ApplyActions(float[] vectorAction)
     {
