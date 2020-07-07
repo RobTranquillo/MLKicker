@@ -16,7 +16,7 @@ public class Statistics : MonoBehaviour
     public void AddEpisode()
     {
         _episodes++;
-        if (_episodes % 10 == 0)
+        if (_episodes % 100 == 0)
         {
             Debug.Log("episodes: " + _episodes + " outs: " + _outs + " rests: " + _rests);
         }
