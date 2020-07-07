@@ -221,19 +221,6 @@ public class PlayerAgent_Offense : Agent
         _trBall.localRotation = Quaternion.identity;
     }
 
-    private void KickInTheBall()
-    {
-        _rbBall.angularVelocity = Vector3.zero;
-        _rbBall.velocity = Vector3.zero;
-
-        var xPos = Random.Range(-shootPositionRange, shootPositionRange);
-        _trBall.localPosition = new Vector3(xPos, 0.4f, -7.45f);
-
-        var controlSignal = keepGoal.position - _trBall.position;
-        controlSignal.Normalize();
-        _rbBall.AddForce(controlSignal * kickInPower);
-    }
-  
     /// <summary>
     /// reward for kicking the ball towards the goal
     /// </summary>
@@ -249,25 +236,6 @@ public class PlayerAgent_Offense : Agent
             return _accuracyReward > 0 ? _accuracyReward : 0;
         }
         return 0;
-    }
-    
-    /// <summary>
-    /// defense tactic of slowing down the ball
-    /// </summary>
-    /// <returns></returns>
-    private bool SlowDownTheBall()
-    {
-        if (!_ballColliders.touchedPlayer) return false;
-        var thisVelocity = Mathf.Abs(_rbBall.velocity.z);
-        if (thisVelocity < _lastVelocity)
-        {
-            // Debug.Log("SlowDownBall");
-            _lastVelocity = thisVelocity;
-            return true;
-        }
-
-        _lastVelocity = thisVelocity;
-        return false;
     }
 
     private bool BallOut()

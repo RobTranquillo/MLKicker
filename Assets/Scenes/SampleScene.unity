@@ -1794,6 +1794,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3161839205618573692, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Agent
+      objectReference: {fileID: 0}
     - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_BehaviorType
