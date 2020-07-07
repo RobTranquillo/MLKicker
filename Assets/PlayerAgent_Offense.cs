@@ -73,7 +73,9 @@ public class PlayerAgent_Offense : Agent
     {
         //Grundlage für Einstellung in Vector Observation > Space Size
         // 1x pos Ball                   = 3
-        sensor.AddObservation(_trBall.localPosition);
+        sensor.AddObservation(_trBall.localPosition);        
+        // 1x velocity Ball                   = 3
+        sensor.AddObservation(_rbBall.velocity);
         // 3x pos of the kicker foot     = 3x3
         sensor.AddObservation(player1Foot.localPosition);
         sensor.AddObservation(player2Foot.localPosition);
@@ -84,7 +86,7 @@ public class PlayerAgent_Offense : Agent
         sensor.AddObservation(player3Foot.localRotation);
         // 1x rot angle of the pole      = 1
         sensor.AddObservation(pole.rotation.eulerAngles.x);
-        //                     sum:     = 25
+        //                     sum:     = 28
     }
 
     public override void OnActionReceived(float[] vectorAction)
@@ -94,19 +96,21 @@ public class PlayerAgent_Offense : Agent
         
         //Debug Output
         cumulativeReward.text = GetCumulativeReward().ToString("R");
-        lineTwo.text = vectorAction[0].ToString("F");
+        lineTwo.text = vectorAction[1].ToString("F");
     }
 
 
     private void ApplyActions(float[] vectorAction)
     {
-        var kickForceAmplification = 20;
-        var poleDragAmplification = 10;
+        // Actions, size = 2
+        // [0] axis rotation
+        // [1] pole bar dragging 
+        var kickForceAmplification = 40;
+        var poleDragAmplification = 30;
         var controlSignal = Vector3.zero;
         
-        // Actions, size = 2 //weil Drehung um die Achse und schieben der Stange
         controlSignal.x = vectorAction[0] * kickForceAmplification;
-        
+
         //just add physical forces 
         pole.AddTorque(controlSignal);
         pole.AddForce(vectorAction[1] * poleDragAmplification, 0, 0);
@@ -124,7 +128,7 @@ public class PlayerAgent_Offense : Agent
         if (BallRest())
         {
             // Debug.Log("Ball rests");
-            AddReward(-0.3f);
+            AddReward(-0.2f);
             statistics.AddRest();
             EndEpisode();
         }
@@ -284,7 +288,7 @@ public class PlayerAgent_Offense : Agent
     private bool BallRest()
     {
         // false, as long as playful actions are still possible
-        if (Mathf.Abs(_trBall.localPosition.z) < 2f)
+        if (Mathf.Abs(_trPole.localPosition.z - _trBall.localPosition.z) < 2f)
             return false;
         
         //ball is moving constantly

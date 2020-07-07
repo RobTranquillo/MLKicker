@@ -488,7 +488,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891367729811025905}
-  m_Material: {fileID: 13400000, guid: a1dde7645aa20d443b996c06fb90a123, type: 2}
+  m_Material: {fileID: 13400000, guid: 6af05d8c3df15fe4bb9cf97113d2f9f6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1023,9 +1023,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3161839204142195416}
   serializedVersion: 2
-  m_Mass: 0.03
+  m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.025
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1511,9 +1511,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3161839204872564246}
   serializedVersion: 2
-  m_Mass: 0.3
+  m_Mass: 2
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 25
+    VectorObservationSize: 28
     NumStackedVectorObservations: 1
     VectorActionSize: 02000000
     VectorActionDescriptions: []
@@ -2153,7 +2153,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3649998029757733991}
-  m_Material: {fileID: 13400000, guid: a1dde7645aa20d443b996c06fb90a123, type: 2}
+  m_Material: {fileID: 13400000, guid: 6af05d8c3df15fe4bb9cf97113d2f9f6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2418,7 +2418,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4443628808017646262}
-  m_Material: {fileID: 13400000, guid: a1dde7645aa20d443b996c06fb90a123, type: 2}
+  m_Material: {fileID: 13400000, guid: 6af05d8c3df15fe4bb9cf97113d2f9f6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3034,7 +3034,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7133686735577862570}
-  m_Material: {fileID: 13400000, guid: a1dde7645aa20d443b996c06fb90a123, type: 2}
+  m_Material: {fileID: 13400000, guid: 6af05d8c3df15fe4bb9cf97113d2f9f6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
