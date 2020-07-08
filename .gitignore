@@ -59,6 +59,8 @@ Thumbs.db.meta
 .idea/
 
 #ignore brain / tensorflow related
-Brain/
-Brain.meta
-/Assets/ML-Agents/Timers/SampleScene_timers.json
+_Brain/
+_Brain.meta
+Assets/ML-Agents/*.meta
+Assets/ML-Agents/Timers/
+ML-Agents.meta
