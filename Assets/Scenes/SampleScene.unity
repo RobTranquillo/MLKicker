@@ -1807,7 +1807,7 @@ PrefabInstance:
     - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_BehaviorType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1893,6 +1893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ballRestThreshold
       value: 0.595
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371732792071152321, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
+        type: 3}
+      propertyPath: MaxStep
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9112799589607660913, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
