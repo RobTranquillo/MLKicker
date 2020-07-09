@@ -79,8 +79,7 @@ public class PlayerAgent_Offense : Agent
     public override void OnEpisodeBegin()
     {
         statistics.AddEpisode();
-        _trPole.position = _poleDefaultPosition;
-        _trPole.rotation = _poleDefaultRotation;
+        ResetPole();
         SpawnTheBall();
     }
     
@@ -134,15 +133,17 @@ public class PlayerAgent_Offense : Agent
         if (BallOut() || PoleOut())
         {
             statistics.AddOut();
-            EndEpisode();
+            ResetPole();
+            // EndEpisode();
         }
-        
+
         if (BallRest())
         {
             // Debug.Log("Ball rests");
             AddReward(BallRestPenalty);
             statistics.AddRest();
-            EndEpisode();
+            SpawnTheBall();
+            // EndEpisode();
         }
 
         // Rewards
@@ -172,7 +173,8 @@ public class PlayerAgent_Offense : Agent
         {
             AddReward(Goal);
             _ballColliders.ResetValues();
-            EndEpisode();
+            SpawnTheBall();
+            // EndEpisode();
         }
 
         // doh, own goal
@@ -180,9 +182,17 @@ public class PlayerAgent_Offense : Agent
         {
             AddReward(SelfGoal);
             _ballColliders.ResetValues();
-            EndEpisode();
+            SpawnTheBall();
+            // EndEpisode();
         }
     }
+
+    private void ResetPole()
+    {
+    _trPole.position = _poleDefaultPosition;
+    _trPole.rotation = _poleDefaultRotation;        
+    }
+    
 
     private float HeavyRotation()
     {

@@ -1787,7 +1787,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 500
+  MaxStep: 0
   target: {fileID: 3161839205159048645}
   keepGoal: {fileID: 3161839205621434819}
   player1Foot: {fileID: 7609380066007181510}
