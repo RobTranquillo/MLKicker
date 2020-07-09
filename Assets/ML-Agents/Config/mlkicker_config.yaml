@@ -18,6 +18,9 @@ MLKicker:
   num_layers: 2
   time_horizon: 128
 
+  # use_curiosity
+  use_curiosity: true
+
   # PPO-specific Configurations
   beta: 5.0e-3
   epsilon: 0.2
