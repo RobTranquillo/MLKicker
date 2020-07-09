@@ -147,7 +147,6 @@ public class PlayerAgent_Offense : Agent
         }
 
         // Rewards
-
         AddReward(BallContact());
         
         //for precise kicks towards the goal
@@ -173,8 +172,7 @@ public class PlayerAgent_Offense : Agent
         {
             AddReward(Goal);
             _ballColliders.ResetValues();
-            SpawnTheBall();
-            // EndEpisode();
+            EndEpisode();
         }
 
         // doh, own goal
@@ -182,8 +180,7 @@ public class PlayerAgent_Offense : Agent
         {
             AddReward(SelfGoal);
             _ballColliders.ResetValues();
-            SpawnTheBall();
-            // EndEpisode();
+            EndEpisode();
         }
     }
 
