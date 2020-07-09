@@ -54,6 +54,17 @@ public class PlayerAgent_Offense : Agent
     public TMP_Text lineTwo;
     public Statistics statistics;
     
+    
+    // rewards and penalties
+    private const float Goal = 1.0f;
+    private const float SelfGoal = -1f;
+    private const float ForwardPlay = 0.01f;
+    private const float BallContactPenalty = -0.001f;
+    private const float HeavyRotationPenalty = -0.01f;
+    private const float BallRestPenalty = -0.2f;
+    private const float LameDefensePenalty = -0.3f;
+    
+    
     private void Start()
     {
         _rbBall = ball.GetComponent<Rigidbody>();
@@ -80,7 +91,7 @@ public class PlayerAgent_Offense : Agent
         
         //Debug Output
         cumulativeReward.text = GetCumulativeReward().ToString("R");
-        lineTwo.text = vectorAction[0].ToString("F") + " / " +  vectorAction[1].ToString("F");
+        lineTwo.text = _trPole.rotation.eulerAngles.x.ToString("F") + " / " +  vectorAction[1].ToString("F");
     }
     
     public override void CollectObservations(VectorSensor sensor)
@@ -129,7 +140,7 @@ public class PlayerAgent_Offense : Agent
         if (BallRest())
         {
             // Debug.Log("Ball rests");
-            AddReward(-0.2f);
+            AddReward(BallRestPenalty);
             statistics.AddRest();
             EndEpisode();
         }
@@ -142,11 +153,14 @@ public class PlayerAgent_Offense : Agent
         AddReward(AimingAccuracy());
         AddReward(TargetApproximation());
         
+        //try to penalty heavy rotation
+        AddReward(HeavyRotation());
+        
         
         if (_ballColliders.touchedHomeZone)
         {
             // Debug.Log("penalty area");
-            AddReward(-0.3f);
+            AddReward(LameDefensePenalty);
             _ballColliders.touchedHomeZone = false;
         }
 
@@ -156,7 +170,7 @@ public class PlayerAgent_Offense : Agent
         // Toooor
         if (_ballColliders.touchedTarget)
         {
-            AddReward(1.0f);
+            AddReward(Goal);
             _ballColliders.ResetValues();
             EndEpisode();
         }
@@ -164,10 +178,17 @@ public class PlayerAgent_Offense : Agent
         // doh, own goal
         if (_ballColliders.touchedSelfGoal)
         {
-            AddReward(-1.0f);
+            AddReward(SelfGoal);
             _ballColliders.ResetValues();
             EndEpisode();
         }
+    }
+
+    private float HeavyRotation()
+    {
+        if (_trPole.rotation.eulerAngles.x > 179f && _trPole.rotation.eulerAngles.x < 181f)
+            return HeavyRotationPenalty;
+        return 0;
     }
 
     private float BallContact()
@@ -180,7 +201,7 @@ public class PlayerAgent_Offense : Agent
             return 1f;
         }
         //if ball stays untouched
-        return -0.001f;
+        return BallContactPenalty;
     }
 
     /// <summary>
@@ -221,7 +242,9 @@ public class PlayerAgent_Offense : Agent
         }
 
         _lastGoalDistance = goalDistance;
-        return 0.01f;
+        return ForwardPlay;
+    
+
     }
 
     /// <summary>
