@@ -17,7 +17,6 @@ public class Colliders : MonoBehaviour
     [HideInInspector]
     public bool touchedTargetZone = false;
 
-    public BoxCollider pole;
     public BoxCollider polePlayer1;
     public BoxCollider polePlayer2;
     public BoxCollider polePlayer3;
@@ -38,31 +37,34 @@ public class Colliders : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        touchedHomeZone = other == homeZone;
-        touchedTargetZone = other == targetZone;
+        if (other == homeZone)
+            touchedHomeZone = true;
+        if (other == targetZone)
+            touchedTargetZone = true;
     }
     void OnTriggerExit(Collider other)
     {
-        touchedHomeZone = other == homeZone;
-        touchedTargetZone = other == targetZone;
+        if (other == homeZone)
+            touchedHomeZone = false;
+        if (other == targetZone)
+            touchedTargetZone = false;
     }
     void OnCollisionEnter(Collision collision)
     {
-        touchedTarget = collision.collider == target;
-        touchedSelfGoal = collision.collider == selfGoal;
-        touchedPlayer = (collision.collider == polePlayer1 || collision.collider == polePlayer2 || collision.collider == polePlayer3);
-        touchedPole = collision.collider == pole;
+        if (collision.collider == target)
+            touchedTarget = true;
+        if (collision.collider == selfGoal)
+            touchedSelfGoal = true;
+        if (collision.collider == polePlayer1 || collision.collider == polePlayer2 || collision.collider == polePlayer3)
+            touchedPlayer = true;
     }
-    void OnCollisionExit()
+    void OnCollisionExit(Collision collision)
     {
-        ResetValues();
-        // würde sagen, das wird nicht benötigt. einfach beim verlassen alle states zurücksetzen
-        // das ist dann gefärlich bis falsch, wenn mehrere Objekte zeitüberlagernd collidieren können. zB. Player & HomeZone 
-        // touchedHomeZone = collision.collider == homeZone;
-        // touchedTargetZone = collision.collider == targetZone;
-        // touchedPlayer = (collision.collider == polePlayer1 || collision.collider == polePlayer2 || collision.collider == polePlayer3);
-        // touchedPole = collision.collider == pole;
-        // touchedTarget = collision.collider == target;
-        // touchedSelfGoal = collision.collider == selfGoal;
+        if (collision.collider == target)
+            touchedTarget = false;
+        if (collision.collider == selfGoal)
+            touchedSelfGoal = false;
+        if (collision.collider == polePlayer1 || collision.collider == polePlayer2 || collision.collider == polePlayer3)
+            touchedPlayer = false;
     }
 }
