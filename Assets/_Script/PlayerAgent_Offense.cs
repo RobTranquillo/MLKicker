@@ -23,7 +23,8 @@ public class PlayerAgent_Offense : Agent
     private float _aberration = 555;
     private float _lastGoalDistance = 0;
 
-    [Header("Physicals")]
+    [Header("Physicals")] 
+    public Transform kicker;
     public Transform target;
     public Transform keepGoal;
     public Transform player1Foot;
@@ -90,27 +91,68 @@ public class PlayerAgent_Offense : Agent
         
         //Debug Output
         cumulativeReward.text = GetCumulativeReward().ToString("R");
-        lineTwo.text = _trPole.rotation.eulerAngles.x.ToString("F") + " / " +  vectorAction[1].ToString("F");
+        lineTwo.text = (_rbBall.velocity / MaxVelocity).ToString("F");
+        // (_trBall.localPosition.x / GameFieldWidth).ToString("F") 
+        //            + " / " ;
     }
+
+    //dimensions for normalisation
+    private const float GameFieldSize = 18f;
+    private const float GameFieldWidth = 5f;
+    private const float GameFieldHeight = 5f;
+    private const float MaxVelocity = 100f; //how many units moved per second (// )can be high on strong kicks) 
     
     public override void CollectObservations(VectorSensor sensor)
     {
+        // normalizedValue = (currentValue - minValue)/(maxValue - minValue)
+        CheckNormalization(_trBall.localPosition.z / GameFieldSize);
+        CheckNormalization(_trBall.localPosition.x / GameFieldWidth);
+        CheckNormalization(_rbBall.velocity / MaxVelocity);
+        CheckNormalization(player1Foot.localPosition.x / GameFieldSize);
+        CheckNormalization(player1Foot.localPosition.y / GameFieldHeight);
+        CheckNormalization(player1Foot.localPosition.z / GameFieldWidth);        
+          
         //Grundlage für Einstellung in Vector Observation > Space Size
         // 1x pos Ball                   = 3
-        sensor.AddObservation(_trBall.localPosition);        
+        sensor.AddObservation(_trBall.localPosition.x / GameFieldWidth);
+        sensor.AddObservation(_trBall.localPosition.y);
+        sensor.AddObservation(_trBall.localPosition.z / GameFieldSize);
         // 1x velocity Ball              = 3
-        sensor.AddObservation(_rbBall.velocity);
+        sensor.AddObservation(_rbBall.velocity / MaxVelocity);
+        
         // 3x pos of the kicker foot     = 3x3
-        sensor.AddObservation(player1Foot.localPosition);
-        sensor.AddObservation(player2Foot.localPosition);
-        sensor.AddObservation(player3Foot.localPosition);
+        sensor.AddObservation(player1Foot.localPosition.x / GameFieldSize);
+        sensor.AddObservation(player1Foot.localPosition.y / GameFieldHeight);
+        sensor.AddObservation(player1Foot.localPosition.z / GameFieldWidth);
+        sensor.AddObservation(player2Foot.localPosition.x / GameFieldSize);
+        sensor.AddObservation(player2Foot.localPosition.y / GameFieldHeight);
+        sensor.AddObservation(player2Foot.localPosition.z / GameFieldWidth);
+        sensor.AddObservation(player3Foot.localPosition.x / GameFieldSize);
+        sensor.AddObservation(player3Foot.localPosition.y / GameFieldHeight);
+        sensor.AddObservation(player3Foot.localPosition.z / GameFieldWidth);
+
         // 3x rot of the kicker foot     = 3x4
         sensor.AddObservation(player1Foot.localRotation);
         sensor.AddObservation(player2Foot.localRotation);
         sensor.AddObservation(player3Foot.localRotation);
+        
         // 1x rot angle of the pole      = 1
-        sensor.AddObservation(pole.rotation.eulerAngles.x);
+        sensor.AddObservation(pole.rotation.eulerAngles.x / 360.0f);
         //                     sum:     = 28
+    }
+
+    private void CheckNormalization(Vector3 val)
+    {
+        CheckNormalization(val.x);
+        CheckNormalization(val.y);
+        CheckNormalization(val.z);
+    }
+    private void CheckNormalization(float val)
+    {
+        if (val > 1f || val < -1f)
+        {
+            Debug.Log("Value ist nicht nomalisiert!");
+        }
     }
 
     private void ApplyActions(float[] vectorAction)
@@ -186,8 +228,8 @@ public class PlayerAgent_Offense : Agent
 
     private void ResetPole()
     {
-    _trPole.position = _poleDefaultPosition;
-    _trPole.rotation = _poleDefaultRotation;        
+        _trPole.position = _poleDefaultPosition;
+        _trPole.rotation = _poleDefaultRotation;        
     }
     
 
