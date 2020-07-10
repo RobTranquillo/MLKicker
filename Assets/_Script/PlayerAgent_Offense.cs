@@ -43,7 +43,7 @@ public class PlayerAgent_Offense : Agent
     public float ballRestTimeout = 3f;
     
     public float kickInPower = 10;
-    public float poleDragAmplification = 30;
+    public float poleDragAmplification = 4;
     public Rigidbody pole;
     
     [Tooltip("The threshold of the ball speed above where reward is given. When exceeded and approaching the goal.")]
@@ -166,7 +166,8 @@ public class PlayerAgent_Offense : Agent
 
         //just add physical forces 
         pole.AddTorque(controlSignal);
-        pole.AddForce(vectorAction[1] * poleDragAmplification, 0, 0);
+        // pole.AddForce(vectorAction[1] * poleDragAmplification, 0, 0);
+        pole.velocity = Vector3.right * vectorAction[1] * poleDragAmplification;
     }
 
     private void YieldRewards()

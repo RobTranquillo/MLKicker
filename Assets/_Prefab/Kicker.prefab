@@ -1799,7 +1799,7 @@ MonoBehaviour:
   ballRestThreshold: 0.2
   ballRestTimeout: 3
   kickInPower: 40
-  poleDragAmplification: 30
+  poleDragAmplification: 4
   pole: {fileID: 3161839204872564712}
   rewardedBallSpeed: 5
   cumulativeReward: {fileID: 9190833743451027457}
