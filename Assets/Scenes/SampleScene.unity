@@ -157,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -784,7 +784,7 @@ PrefabInstance:
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -990,7 +990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.34013903, y: 0.0000000032026353, z: 0.0000000138122385, w: 0.9403752}
-  m_LocalPosition: {x: 0.4, y: 18.4, z: -21.15}
+  m_LocalPosition: {x: 0.4, y: 7.77, z: -18.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1031,7 +1031,7 @@ PrefabInstance:
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 75
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1195,7 +1195,7 @@ PrefabInstance:
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
@@ -1804,11 +1804,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Agent
       objectReference: {fileID: 0}
-    - target: {fileID: 3161839205618573695, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: m_BehaviorType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3741745875834843276, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1893,11 +1888,6 @@ PrefabInstance:
         type: 3}
       propertyPath: ballRestThreshold
       value: 0.595
-      objectReference: {fileID: 0}
-    - target: {fileID: 8371732792071152321, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
-        type: 3}
-      propertyPath: MaxStep
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9112799589607660913, guid: d9d6e59c84643924fb1ab4b0c4110e5a,
         type: 3}
