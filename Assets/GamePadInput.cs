@@ -90,22 +90,20 @@ public class GamePadInput : MonoBehaviour
     }
     private void SwitchHand(Hand newHand)
     {
-        Debug.Log(("Handwechsel: " + newHand));
         _hand = newHand;
-
         if (_hand == Hand.Defence)
         {
-            poleBars[0].GetComponent<Usage>().state = true;
-            poleBars[1].GetComponent<Usage>().state = true;
-            poleBars[2].GetComponent<Usage>().state = false;
-            poleBars[3].GetComponent<Usage>().state = false;
+            poleBars[0].GetComponent<Usage>().SetState(true);
+            poleBars[1].GetComponent<Usage>().SetState(true);
+            poleBars[2].GetComponent<Usage>().SetState(false);
+            poleBars[3].GetComponent<Usage>().SetState(false);
         }
         else
         {
-            poleBars[0].GetComponent<Usage>().state = false;
-            poleBars[1].GetComponent<Usage>().state = false;
-            poleBars[2].GetComponent<Usage>().state = true;
-            poleBars[3].GetComponent<Usage>().state = true;
+            poleBars[0].GetComponent<Usage>().SetState(false);
+            poleBars[1].GetComponent<Usage>().SetState(false);
+            poleBars[2].GetComponent<Usage>().SetState(true);
+            poleBars[3].GetComponent<Usage>().SetState(true);
         }
     }
 }
