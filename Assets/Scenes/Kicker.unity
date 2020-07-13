@@ -908,7 +908,7 @@ GameObject:
   - component: {fileID: 132850616}
   - component: {fileID: 132850615}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1095,7 +1095,7 @@ GameObject:
   - component: {fileID: 162781140}
   - component: {fileID: 162781139}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1358,7 +1358,7 @@ GameObject:
   m_Component:
   - component: {fileID: 206695409}
   m_Layer: 0
-  m_Name: Blue_Verteidigung
+  m_Name: Blue_Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1394,7 +1394,7 @@ GameObject:
   - component: {fileID: 229696472}
   - component: {fileID: 229696471}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2203,7 +2203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402014451}
   m_Layer: 0
-  m_Name: SpielfigurenBlau
+  m_Name: PlayerBlau
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2373,7 +2373,6 @@ MonoBehaviour:
   - {fileID: 680700745}
   selectedMaterial: {fileID: 2100000, guid: e4ac64eb9954fa04fa6fe1de760918e1, type: 2}
   unselectedMaterial: {fileID: 2100000, guid: 236c6abc0948f3e45acfc5ba0a2ab858, type: 2}
-  state: 0
 --- !u!1 &479920308
 GameObject:
   m_ObjectHideFlags: 0
@@ -12630,7 +12629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 635608241}
   m_Layer: 0
-  m_Name: 'Blue_Stuermer '
+  m_Name: Blue_Offense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12998,7 +12997,7 @@ GameObject:
   - component: {fileID: 695681322}
   - component: {fileID: 695681321}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13294,7 +13293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 707443332}
   m_Layer: 0
-  m_Name: SpielfigurenRot
+  m_Name: PlayerRot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13331,7 +13330,7 @@ GameObject:
   - component: {fileID: 708323464}
   - component: {fileID: 708323463}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18752,7 +18751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821749087}
   m_Layer: 0
-  m_Name: Red_Verteidigung (1)
+  m_Name: Red_Defense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19125,7 +19124,7 @@ GameObject:
   - component: {fileID: 873230184}
   - component: {fileID: 873230183}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19297,7 +19296,7 @@ GameObject:
   - component: {fileID: 929451955}
   - component: {fileID: 929451954}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19690,7 +19689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030516328}
   m_Layer: 0
-  m_Name: "Red_St\xFCrmer"
+  m_Name: Red_Offense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20335,7 +20334,7 @@ GameObject:
   - component: {fileID: 1117622473}
   - component: {fileID: 1117622472}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20426,7 +20425,7 @@ GameObject:
   - component: {fileID: 1127230821}
   - component: {fileID: 1127230823}
   m_Layer: 0
-  m_Name: Pole_BlauStuermer
+  m_Name: Pole_BlueOffense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20471,7 +20470,6 @@ MonoBehaviour:
   - {fileID: 1878571755}
   selectedMaterial: {fileID: 2100000, guid: e4ac64eb9954fa04fa6fe1de760918e1, type: 2}
   unselectedMaterial: {fileID: 2100000, guid: 236c6abc0948f3e45acfc5ba0a2ab858, type: 2}
-  state: 0
 --- !u!1 &1149135651
 GameObject:
   m_ObjectHideFlags: 0
@@ -20483,7 +20481,7 @@ GameObject:
   - component: {fileID: 1149135652}
   - component: {fileID: 1149135654}
   m_Layer: 0
-  m_Name: Pole_BlauVerteidigung
+  m_Name: Pole_BlueDefense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20526,7 +20524,6 @@ MonoBehaviour:
   - {fileID: 1853473869}
   selectedMaterial: {fileID: 2100000, guid: e4ac64eb9954fa04fa6fe1de760918e1, type: 2}
   unselectedMaterial: {fileID: 2100000, guid: 236c6abc0948f3e45acfc5ba0a2ab858, type: 2}
-  state: 0
 --- !u!1 &1162076026
 GameObject:
   m_ObjectHideFlags: 0
@@ -21194,7 +21191,7 @@ GameObject:
   - component: {fileID: 1291178168}
   - component: {fileID: 1291178169}
   m_Layer: 0
-  m_Name: Spielfiguren
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23100,7 +23097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620309565}
   m_Layer: 0
-  m_Name: Red_Goalie (1)
+  m_Name: Red_Goalie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23261,7 +23258,7 @@ GameObject:
   - component: {fileID: 1700190574}
   - component: {fileID: 1700190576}
   m_Layer: 0
-  m_Name: Pole_BlauMiddle
+  m_Name: Pole_BlueMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23310,7 +23307,6 @@ MonoBehaviour:
   - {fileID: 603972764}
   selectedMaterial: {fileID: 2100000, guid: e4ac64eb9954fa04fa6fe1de760918e1, type: 2}
   unselectedMaterial: {fileID: 2100000, guid: 236c6abc0948f3e45acfc5ba0a2ab858, type: 2}
-  state: 0
 --- !u!1 &1706273587
 GameObject:
   m_ObjectHideFlags: 0
@@ -23608,7 +23604,7 @@ GameObject:
   - component: {fileID: 1721699521}
   - component: {fileID: 1721699525}
   m_Layer: 0
-  m_Name: Fussball
+  m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25619,7 +25615,7 @@ GameObject:
   - component: {fileID: 2038255008}
   - component: {fileID: 2038255007}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26182,7 +26178,7 @@ GameObject:
   - component: {fileID: 2085892263}
   - component: {fileID: 2085892262}
   m_Layer: 0
-  m_Name: SpielfeldBoundries
+  m_Name: FieldBoundries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
