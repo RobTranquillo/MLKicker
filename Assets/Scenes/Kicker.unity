@@ -2203,7 +2203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402014451}
   m_Layer: 0
-  m_Name: PlayerBlau
+  m_Name: PlayerBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2332,7 +2332,7 @@ GameObject:
   - component: {fileID: 416144291}
   - component: {fileID: 416144293}
   m_Layer: 0
-  m_Name: Pole_BlauGoalie
+  m_Name: Pole_BlueGoalie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13293,7 +13293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 707443332}
   m_Layer: 0
-  m_Name: PlayerRot
+  m_Name: PlayerRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18876,8 +18876,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 837370953}
+  - component: {fileID: 837370954}
   m_Layer: 0
-  m_Name: PlayerPole (1)
+  m_Name: Pole_RedMiddlefield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18905,6 +18906,24 @@ Transform:
   m_Father: {fileID: 1170110194}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &837370954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837370952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedMaterial: {fileID: 2100000, guid: 498938e31455ec04daa4fdf062a92e2c, type: 2}
+  unselectedMaterial: {fileID: -3534392140715823719, guid: e4756139a8328d44f9081576413eff1f,
+    type: 3}
 --- !u!1 &839884056
 GameObject:
   m_ObjectHideFlags: 0
@@ -19086,8 +19105,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870085110}
+  - component: {fileID: 870085111}
   m_Layer: 0
-  m_Name: PlayerPole (1)
+  m_Name: Pole_RedGoalie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19111,6 +19131,24 @@ Transform:
   m_Father: {fileID: 1620309565}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870085111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870085109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedMaterial: {fileID: 2100000, guid: 498938e31455ec04daa4fdf062a92e2c, type: 2}
+  unselectedMaterial: {fileID: -3534392140715823719, guid: e4756139a8328d44f9081576413eff1f,
+    type: 3}
 --- !u!1 &873230181
 GameObject:
   m_ObjectHideFlags: 0
@@ -21190,6 +21228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1291178168}
   - component: {fileID: 1291178169}
+  - component: {fileID: 1291178170}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -21220,6 +21259,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291178167}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1be602046cb89946bf62c19cdd39fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poleBars:
+  - {fileID: 1620309564}
+  - {fileID: 1925605977}
+  - {fileID: 837370952}
+  - {fileID: 1894962039}
+  poleSwitchDelay: 0.9
+  useSecondGamePad: 1
+--- !u!114 &1291178170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291178167}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1be602046cb89946bf62c19cdd39fad, type: 3}
@@ -21230,9 +21288,8 @@ MonoBehaviour:
   - {fileID: 1149135651}
   - {fileID: 1700190573}
   - {fileID: 1127230820}
-  selectedMaterial: {fileID: 2100000, guid: fbadda4abb41a02488d643890cc84254, type: 2}
-  unselectedMaterial: {fileID: 2100000, guid: c705b7f95a5476a4f8e572e502cfd4b0, type: 2}
   poleSwitchDelay: 0.9
+  useSecondGamePad: 0
 --- !u!1 &1294024434
 GameObject:
   m_ObjectHideFlags: 0
@@ -23097,7 +23154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1620309565}
   m_Layer: 0
-  m_Name: Red_Goalie
+  m_Name: Pole_RedGoalie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24856,8 +24913,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1894962040}
+  - component: {fileID: 1894962041}
   m_Layer: 0
-  m_Name: PlayerPole (1)
+  m_Name: Pole_RedOffense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24883,6 +24941,24 @@ Transform:
   m_Father: {fileID: 1030516328}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1894962041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894962039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedMaterial: {fileID: 2100000, guid: 498938e31455ec04daa4fdf062a92e2c, type: 2}
+  unselectedMaterial: {fileID: -3534392140715823719, guid: e4756139a8328d44f9081576413eff1f,
+    type: 3}
 --- !u!1 &1907932628
 GameObject:
   m_ObjectHideFlags: 0
@@ -25079,8 +25155,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1925605978}
+  - component: {fileID: 1925605979}
   m_Layer: 0
-  m_Name: PlayerPole (1)
+  m_Name: Pole_RedDefense
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25105,6 +25182,24 @@ Transform:
   m_Father: {fileID: 821749087}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1925605979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925605977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objects:
+  - {fileID: 0}
+  - {fileID: 0}
+  selectedMaterial: {fileID: 2100000, guid: 498938e31455ec04daa4fdf062a92e2c, type: 2}
+  unselectedMaterial: {fileID: -3534392140715823719, guid: e4756139a8328d44f9081576413eff1f,
+    type: 3}
 --- !u!1 &1933783682
 GameObject:
   m_ObjectHideFlags: 0

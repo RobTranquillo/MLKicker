@@ -19,10 +19,8 @@ public enum Hand
 public class GamePadInput : MonoBehaviour
 {
     public GameObject[] poleBars = new GameObject[4];
-    public Material selectedMaterial;
-    public Material unselectedMaterial;
-
     public float poleSwitchDelay = 0.9f; //Seconds delay between switching the poles
+    public bool useSecondGamePad = false;
     
     private Hand _hand;
     private Gamepad _gamePad;
@@ -32,6 +30,17 @@ public class GamePadInput : MonoBehaviour
     void Start()
     {
         _gamePad = Gamepad.current;
+
+        if (useSecondGamePad)
+        {
+            var allGamePads = Gamepad.all;
+            if (allGamePads.Count > 1)
+            {
+                _gamePad = allGamePads[1];
+                Debug.Log("Second GamePad detected. Player Red playable.");
+            }            
+        }
+
         _nextSwitch = Time.time;
         
         _hand = Hand.Offense;
