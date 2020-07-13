@@ -50,17 +50,17 @@ public class GamePadInput : MonoBehaviour
 
         if (_hand == Hand.Defence)
         {
-            poleBars[0].transform.Rotate(_gamePad.leftStick.up.ReadValue() * amplify, 0,0); 
-            poleBars[0].transform.Rotate(- _gamePad.leftStick.down.ReadValue() * amplify, 0,0);
-            poleBars[1].transform.Rotate(_gamePad.rightStick.up.ReadValue() * amplify, 0,0); 
-            poleBars[1].transform.Rotate(- _gamePad.rightStick.down.ReadValue() * amplify, 0,0);
+            poleBars[0].transform.Rotate(_gamePad.leftStick.left.ReadValue() * amplify, 0,0); 
+            poleBars[0].transform.Rotate(- _gamePad.leftStick.right.ReadValue() * amplify, 0,0);
+            poleBars[1].transform.Rotate(_gamePad.rightStick.left.ReadValue() * amplify, 0,0); 
+            poleBars[1].transform.Rotate(- _gamePad.rightStick.right.ReadValue() * amplify, 0,0);
         }
         else
         {
-            poleBars[2].transform.Rotate(_gamePad.leftStick.up.ReadValue() * amplify, 0,0); 
-            poleBars[2].transform.Rotate(- _gamePad.leftStick.down.ReadValue() * amplify, 0,0);
-            poleBars[3].transform.Rotate(_gamePad.rightStick.up.ReadValue() * amplify, 0,0); 
-            poleBars[3].transform.Rotate(- _gamePad.rightStick.down.ReadValue() * amplify, 0,0);
+            poleBars[2].transform.Rotate(_gamePad.leftStick.left.ReadValue() * amplify, 0,0); 
+            poleBars[2].transform.Rotate(- _gamePad.leftStick.right.ReadValue() * amplify, 0,0);
+            poleBars[3].transform.Rotate(_gamePad.rightStick.left.ReadValue() * amplify, 0,0); 
+            poleBars[3].transform.Rotate(- _gamePad.rightStick.right.ReadValue() * amplify, 0,0);
         }
     }
 
