@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Debug = UnityEngine.Debug;
 
 [Flags]
 public enum Hand
@@ -38,6 +40,32 @@ public class GamePadInput : MonoBehaviour
 
     void Update()
     {
+        Switching();
+        Rotating();
+    }
+
+    private void Rotating()
+    {
+        float amplify = 10f;
+
+        if (_hand == Hand.Defence)
+        {
+            poleBars[0].transform.Rotate(_gamePad.leftStick.up.ReadValue() * amplify, 0,0); 
+            poleBars[0].transform.Rotate(- _gamePad.leftStick.down.ReadValue() * amplify, 0,0);
+            poleBars[1].transform.Rotate(_gamePad.rightStick.up.ReadValue() * amplify, 0,0); 
+            poleBars[1].transform.Rotate(- _gamePad.rightStick.down.ReadValue() * amplify, 0,0);
+        }
+        else
+        {
+            poleBars[2].transform.Rotate(_gamePad.leftStick.up.ReadValue() * amplify, 0,0); 
+            poleBars[2].transform.Rotate(- _gamePad.leftStick.down.ReadValue() * amplify, 0,0);
+            poleBars[3].transform.Rotate(_gamePad.rightStick.up.ReadValue() * amplify, 0,0); 
+            poleBars[3].transform.Rotate(- _gamePad.rightStick.down.ReadValue() * amplify, 0,0);
+        }
+    }
+
+    private void Switching()
+    {
         if (Time.time < _nextSwitch)
             return;
         
@@ -48,9 +76,8 @@ public class GamePadInput : MonoBehaviour
             
         SwitchHandLeft(left);
         SwitchHandRight(right);
-        _nextSwitch = Time.time + poleSwitchDelay;
+        _nextSwitch = Time.time + poleSwitchDelay;        
     }
-
     private void SwitchHandLeft(float val)
     {
         if (val >= 0.2f && _hand == Hand.Offense)
