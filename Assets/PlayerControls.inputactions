@@ -61,7 +61,7 @@
                     "path": "<XInputController>/leftStick/x",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1)",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RotatePoleLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -72,7 +72,7 @@
                     "path": "<XInputController>/leftStick/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "DragPoleLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -83,7 +83,7 @@
                     "path": "<XInputController>/rightStick/x",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1)",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RotatePoleRightHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -94,7 +94,7 @@
                     "path": "<XInputController>/rightStick/y",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1)",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "DragPoleRightHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -105,7 +105,7 @@
                     "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -116,7 +116,7 @@
                     "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Offense",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -183,7 +183,7 @@
                     "path": "<XInputController>/leftStick/x",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1)",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RotatePoleLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -194,7 +194,7 @@
                     "path": "<XInputController>/leftStick/y",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "DragPoleLeftHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -205,7 +205,7 @@
                     "path": "<XInputController>/rightStick/x",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1)",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "RotatePoleRightHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -216,7 +216,7 @@
                     "path": "<XInputController>/rightStick/y",
                     "interactions": "",
                     "processors": "Normalize(min=-1,max=1)",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "DragPoleRightHand",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -227,7 +227,7 @@
                     "path": "<XInputController>/leftTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -238,7 +238,7 @@
                     "path": "<XInputController>/rightTrigger",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Offense",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -246,5 +246,17 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

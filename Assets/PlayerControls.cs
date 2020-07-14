@@ -74,7 +74,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/x"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RotatePoleLeftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -85,7 +85,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DragPoleLeftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -96,7 +96,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightStick/x"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RotatePoleRightHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -107,7 +107,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightStick/y"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DragPoleRightHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -118,7 +118,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Defense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -129,7 +129,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Offense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -196,7 +196,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/x"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RotatePoleLeftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -207,7 +207,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftStick/y"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DragPoleLeftHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -218,7 +218,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightStick/x"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""RotatePoleRightHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -229,7 +229,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightStick/y"",
                     ""interactions"": """",
                     ""processors"": ""Normalize(min=-1,max=1)"",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""DragPoleRightHand"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -240,7 +240,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Defense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -251,7 +251,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""path"": ""<XInputController>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Offense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -259,7 +259,19 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Gamepad"",
+            ""bindingGroup"": ""Gamepad"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // GameplayControllerA
         m_GameplayControllerA = asset.FindActionMap("GameplayControllerA", throwIfNotFound: true);
@@ -468,6 +480,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public GameplayControllerBActions @GameplayControllerB => new GameplayControllerBActions(this);
+    private int m_GamepadSchemeIndex = -1;
+    public InputControlScheme GamepadScheme
+    {
+        get
+        {
+            if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
+            return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
     public interface IGameplayControllerAActions
     {
         void OnRotatePoleLeftHand(InputAction.CallbackContext context);
