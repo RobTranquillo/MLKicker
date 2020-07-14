@@ -16,41 +16,81 @@ public enum Hand
 
 
 
+[RequireComponent(typeof(PlayerInput))]
 public class GamePadInput : MonoBehaviour
 {
     public GameObject[] poleBars = new GameObject[4];
     public float poleSwitchDelay = 0.9f; //Seconds delay between switching the poles
     public bool useSecondGamePad = false;
-    
+    public float amplifyRotation = 10f;
+
+    private PlayerControls _controls;
     private Hand _hand;
     private Gamepad _gamePad;
     
-    float _nextSwitch;
+    private float _nextSwitch;
+
+    private float _controllerALeftRotate;
+    private float _controllerALeftDrag;
+    private float _controllerARightRotate;
+    private float _controllerARightDrag;
+    private bool _controllerADefense;
+    private bool _controllerAOffense;
+ 
+    // actions via the action map and PlayerInput script 
+    // hint: PlayerInputManager 	Handles setups that allow for several players including scenarios such as player lobbies and split-screen gameplay.
+    public void OnRotatePoleLeftHand(InputValue context)
+    {
+        _controllerALeftRotate = context.Get<float>();
+    }
+    public void OnRotatePoleRightHand(InputValue context)
+    {
+        _controllerARightRotate = context.Get<float>();
+    }
+    public void OnDragPoleLeftHand(InputValue context)
+    {
+        _controllerALeftDrag = context.Get<float>();
+    }
+    public void OnDragPoleRightHand(InputValue context)
+    {
+        _controllerARightDrag = context.Get<float>();
+    }
+    public void OnOffense()
+    {
+        SwitchHand(Hand.Offense);
+    }
+    public void OnDefense()
+    {
+        SwitchHand(Hand.Defence);
+    }
     
     void Start()
     {
-        _gamePad = Gamepad.current;
-
-        if (useSecondGamePad)
-        {
-            var allGamePads = Gamepad.all;
-            if (allGamePads.Count > 1)
-            {
-                _gamePad = allGamePads[1];
-                Debug.Log("Second GamePad detected. Player Red playable.");
-            }            
-        }
-
         _nextSwitch = Time.time;
-        
         _hand = Hand.Offense;
         SwitchHand(Hand.Defence);
     }
 
     void Update()
     {
-        Switching();
         Rotating();
+        Dragging();
+    }
+
+    private void Dragging()
+    {
+        short[] selectedBars = new short[]{0,1};
+        if (_hand == Hand.Offense)
+            selectedBars = new short[]{2,3};
+
+        Vector3 pos;
+        pos = poleBars[selectedBars[0]].transform.localPosition;
+        pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
+        poleBars[selectedBars[0]].transform.localPosition = pos;
+        
+        pos = poleBars[selectedBars[1]].transform.localPosition;
+        pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
+        poleBars[selectedBars[1]].transform.localPosition = pos;
     }
 
     private void Rotating()
@@ -59,46 +99,22 @@ public class GamePadInput : MonoBehaviour
 
         if (_hand == Hand.Defence)
         {
-            poleBars[0].transform.Rotate(_gamePad.leftStick.left.ReadValue() * amplify, 0,0); 
-            poleBars[0].transform.Rotate(- _gamePad.leftStick.right.ReadValue() * amplify, 0,0);
-            poleBars[1].transform.Rotate(_gamePad.rightStick.left.ReadValue() * amplify, 0,0); 
-            poleBars[1].transform.Rotate(- _gamePad.rightStick.right.ReadValue() * amplify, 0,0);
+            poleBars[0].transform.Rotate(_controllerALeftRotate * amplifyRotation, 0, 0);
+            poleBars[1].transform.Rotate(_controllerARightRotate * amplifyRotation, 0, 0);
         }
         else
         {
-            poleBars[2].transform.Rotate(_gamePad.leftStick.left.ReadValue() * amplify, 0,0); 
-            poleBars[2].transform.Rotate(- _gamePad.leftStick.right.ReadValue() * amplify, 0,0);
-            poleBars[3].transform.Rotate(_gamePad.rightStick.left.ReadValue() * amplify, 0,0); 
-            poleBars[3].transform.Rotate(- _gamePad.rightStick.right.ReadValue() * amplify, 0,0);
+            poleBars[2].transform.Rotate(_controllerALeftRotate * amplifyRotation, 0, 0);
+            poleBars[3].transform.Rotate(_controllerARightRotate * amplifyRotation, 0, 0);
         }
     }
-
-    private void Switching()
-    {
-        if (Time.time < _nextSwitch)
-            return;
-        
-        var left = _gamePad.leftTrigger.ReadValue();
-        var right = _gamePad.rightTrigger.ReadValue();
-        if (left <= 0.2f && right <= 0.2f || left == 0 && right == 0)
-            return;
-            
-        SwitchHandLeft(left);
-        SwitchHandRight(right);
-        _nextSwitch = Time.time + poleSwitchDelay;        
-    }
-    private void SwitchHandLeft(float val)
-    {
-        if (val >= 0.2f && _hand == Hand.Offense)
-            SwitchHand(Hand.Defence);
-    }
-    private void SwitchHandRight(float val)
-    {
-        if (val >= 0.2f && _hand == Hand.Defence)
-            SwitchHand(Hand.Offense);
-    }
+    
     private void SwitchHand(Hand newHand)
     {
+        if (Time.time < _nextSwitch || _hand == newHand)
+            return;        
+        _nextSwitch = Time.time + poleSwitchDelay;   
+        
         _hand = newHand;
         if (_hand == Hand.Defence)
         {

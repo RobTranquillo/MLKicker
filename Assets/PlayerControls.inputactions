@@ -1,0 +1,250 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "GameplayControllerA",
+            "id": "3e6b0c71-7748-4e87-a858-cfe41b9646ed",
+            "actions": [
+                {
+                    "name": "RotatePoleLeftHand",
+                    "type": "PassThrough",
+                    "id": "ef03efe7-0579-4ad1-a504-b189b94d726a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DragPoleLeftHand",
+                    "type": "PassThrough",
+                    "id": "9531f09e-174e-4503-9800-c39f909570e5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotatePoleRightHand",
+                    "type": "PassThrough",
+                    "id": "5d140119-2d88-4987-a199-c01725878529",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DragPoleRightHand",
+                    "type": "PassThrough",
+                    "id": "33700003-b1fc-42c7-aabc-5498f626c4ea",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Defense",
+                    "type": "Button",
+                    "id": "b1e2bce9-9d76-45da-bb73-5aae7803e252",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Offense",
+                    "type": "Button",
+                    "id": "bd559bca-2774-4bfe-a975-c5e8372e5662",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "150752c9-9345-4a7f-815e-f0c0e935f056",
+                    "path": "<XInputController>/leftStick/x",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "RotatePoleLeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "899dfc9d-fcfe-4350-afd7-ef4714ad6fb8",
+                    "path": "<XInputController>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragPoleLeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84be4f8d-c53f-41ec-a2ec-75b1e1dff870",
+                    "path": "<XInputController>/rightStick/x",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "RotatePoleRightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0031399d-fd76-4a87-b3a6-f0891a543081",
+                    "path": "<XInputController>/rightStick/y",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "DragPoleRightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d534404-5bce-4174-a9a6-690dc556a801",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Defense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3d3d292-19da-4384-8220-e90007b57281",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Offense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "GameplayControllerB",
+            "id": "67b6c06e-74d2-46a1-b4a0-cc6e179fc559",
+            "actions": [
+                {
+                    "name": "RotatePoleLeftHand",
+                    "type": "PassThrough",
+                    "id": "8b6d25b7-7385-47a6-a404-f8ae0c994667",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DragPoleLeftHand",
+                    "type": "PassThrough",
+                    "id": "23eb0592-8b4b-424c-9342-45c578061978",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RotatePoleRightHand",
+                    "type": "PassThrough",
+                    "id": "f9d7def7-e1b7-49fd-a5c5-450be695b99f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "DragPoleRightHand",
+                    "type": "PassThrough",
+                    "id": "b160aa58-cc48-44d0-a14e-04ab4124baa8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Defense",
+                    "type": "PassThrough",
+                    "id": "32f1970d-307f-44de-adf3-d81d7c094e62",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Offense",
+                    "type": "PassThrough",
+                    "id": "3be9f69d-63ba-4966-bae6-2bb427469f20",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "55839537-2a6a-4f5b-bdfd-21c40deab50e",
+                    "path": "<XInputController>/leftStick/x",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "RotatePoleLeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "26a5080f-f988-4d20-972b-4914c0b05ece",
+                    "path": "<XInputController>/leftStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DragPoleLeftHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c15ab133-2681-40a4-84c8-da01b55fec1b",
+                    "path": "<XInputController>/rightStick/x",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "RotatePoleRightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f0207ad6-476f-4761-a6ce-11a919807dab",
+                    "path": "<XInputController>/rightStick/y",
+                    "interactions": "",
+                    "processors": "Normalize(min=-1,max=1)",
+                    "groups": "",
+                    "action": "DragPoleRightHand",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6216f726-3e85-4103-8026-3373bf6f37fa",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Defense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ec04f8a-7e82-44be-8898-0c323dcfcdc6",
+                    "path": "<XInputController>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Offense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
