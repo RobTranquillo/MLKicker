@@ -1230,8 +1230,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0748daaebe239bd4cba3822ec614edd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   scoreText: {fileID: 7670702490874931055}
   winPS: {fileID: 584173551}
   compareTag: Ball
@@ -2108,8 +2108,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0748daaebe239bd4cba3822ec614edd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   scoreText: {fileID: 7670702491392153864}
   winPS: {fileID: 571178422}
   compareTag: Ball
@@ -2238,8 +2238,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1be602046cb89946bf62c19cdd39fad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   poleBars:
   - {fileID: 416144290}
   - {fileID: 1149135651}
@@ -2351,6 +2351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 416144291}
   - component: {fileID: 416144293}
+  - component: {fileID: 416144292}
   m_Layer: 0
   m_Name: Pole_BlueGoalie
   m_TagString: Untagged
@@ -2376,6 +2377,22 @@ Transform:
   m_Father: {fileID: 1383627592}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &416144292
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416144290}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &416144293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,8 +2403,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 499023775}
   - {fileID: 680700745}
@@ -13348,8 +13365,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1be602046cb89946bf62c19cdd39fad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   poleBars:
   - {fileID: 1925605977}
   - {fileID: 870085109}
@@ -18790,6 +18807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821749087}
+  - component: {fileID: 821749088}
   m_Layer: 0
   m_Name: Red_Defense
   m_TagString: Untagged
@@ -18814,6 +18832,22 @@ Transform:
   m_Father: {fileID: 707443332}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!54 &821749088
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821749086}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &833990752
 GameObject:
   m_ObjectHideFlags: 0
@@ -18917,6 +18951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 837370953}
   - component: {fileID: 837370954}
+  - component: {fileID: 837370955}
   m_Layer: 0
   m_Name: Pole_RedMiddlefield
   m_TagString: Untagged
@@ -18956,8 +18991,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 1602135884}
   - {fileID: 1049024120}
@@ -19149,6 +19184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 870085110}
   - component: {fileID: 870085111}
+  - component: {fileID: 870085112}
   m_Layer: 0
   m_Name: Pole_RedGoalie
   m_TagString: Untagged
@@ -19184,8 +19220,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 277016068}
   - {fileID: 839884056}
@@ -19768,6 +19804,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030516328}
+  - component: {fileID: 1030516329}
   m_Layer: 0
   m_Name: Red_Offense
   m_TagString: Untagged
@@ -19792,6 +19829,22 @@ Transform:
   m_Father: {fileID: 707443332}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!54 &1030516329
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030516327}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1039317048
 GameObject:
   m_ObjectHideFlags: 0
@@ -20504,6 +20557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1127230821}
   - component: {fileID: 1127230823}
+  - component: {fileID: 1127230822}
   m_Layer: 0
   m_Name: Pole_BlueOffense
   m_TagString: Untagged
@@ -20531,6 +20585,22 @@ Transform:
   m_Father: {fileID: 635608241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1127230822
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1127230820}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1127230823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20541,8 +20611,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 148613059}
   - {fileID: 1854612239}
@@ -20560,6 +20630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1149135652}
   - component: {fileID: 1149135654}
+  - component: {fileID: 1149135653}
   m_Layer: 0
   m_Name: Pole_BlueDefense
   m_TagString: Untagged
@@ -20586,6 +20657,22 @@ Transform:
   m_Father: {fileID: 206695409}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1149135653
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149135651}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1149135654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20596,8 +20683,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 359474934}
   - {fileID: 2091622944}
@@ -20799,6 +20886,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1170110194}
+  - component: {fileID: 1170110195}
   m_Layer: 0
   m_Name: Red_Middlefield
   m_TagString: Untagged
@@ -20823,6 +20911,22 @@ Transform:
   m_Father: {fileID: 707443332}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
+--- !u!54 &1170110195
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170110193}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1184472818
 GameObject:
   m_ObjectHideFlags: 0
@@ -23316,6 +23420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1700190574}
   - component: {fileID: 1700190576}
+  - component: {fileID: 1700190575}
   m_Layer: 0
   m_Name: Pole_BlueMiddle
   m_TagString: Untagged
@@ -23345,6 +23450,22 @@ Transform:
   m_Father: {fileID: 2077184513}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1700190575
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1700190573}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &1700190576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23355,8 +23476,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 360596896}
   - {fileID: 76154845}
@@ -24916,6 +25037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894962040}
   - component: {fileID: 1894962041}
+  - component: {fileID: 1894962042}
   m_Layer: 0
   m_Name: Pole_RedOffense
   m_TagString: Untagged
@@ -24953,8 +25075,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 1606723247}
   - {fileID: 699619669}
@@ -25159,6 +25281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925605978}
   - component: {fileID: 1925605979}
+  - component: {fileID: 1925605980}
   m_Layer: 0
   m_Name: Pole_RedDefense
   m_TagString: Untagged
@@ -25195,8 +25318,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f63fcf6d6131ed47af16a57f413a01f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   objects:
   - {fileID: 1990944916}
   - {fileID: 1385616020}
@@ -29206,8 +29329,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -29320,8 +29443,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
@@ -29342,8 +29465,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_IgnoreReversedGraphics: 1
   m_BlockingObjects: 0
   m_BlockingMask:
@@ -29386,8 +29509,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -29483,8 +29606,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -29542,8 +29665,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
@@ -29613,8 +29736,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a45fcddeb8b54f4e99e808115792732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   timeLeft: 15
   TorRed: {fileID: 195904307}
   TorBlue: {fileID: 393617105}
