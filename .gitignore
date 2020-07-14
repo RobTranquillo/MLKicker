@@ -66,5 +66,6 @@ Assets/ML-Agents/Timers/
 ML-Agents.meta
 
 # eigene controller input settings
-PlayerInput.cs
-PlayerInputControls.inputactions
+PlayerControls.cs
+PlayerControls.inputactions
+
