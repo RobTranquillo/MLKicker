@@ -58,9 +58,13 @@ Thumbs.db.meta
 #rider settings
 .idea/
 
-#ignore brain / tensorflow related
+#brain / tensorflow related
 _Brain/
 _Brain.meta
 Assets/ML-Agents/*.meta
 Assets/ML-Agents/Timers/
 ML-Agents.meta
+
+# eigene controller input settings
+PlayerInput.cs
+PlayerInputControls.inputactions
