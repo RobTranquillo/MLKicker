@@ -25,8 +25,8 @@ public class GamePadInput : MonoBehaviour
 
     private Hand _hand;
     private float _nextSwitch;
+    private Vector3[] _poleBarDefaultPos = new Vector3[4];
 
- 
     // actions via the action map and PlayerInput script 
     // hint: PlayerInputManager 	Handles setups that allow for several players including scenarios such as player lobbies and split-screen gameplay.
     private float _controllerALeftRotate;
@@ -62,6 +62,9 @@ public class GamePadInput : MonoBehaviour
     
     void Start()
     {
+        for (int i = 0; i < 4; i++)
+            _poleBarDefaultPos[i] = poleBars[i].transform.localPosition;
+
         _nextSwitch = Time.time;
         _hand = Hand.Offense;
         SwitchHand(Hand.Defence);
@@ -82,10 +85,14 @@ public class GamePadInput : MonoBehaviour
         Vector3 pos;
         pos = poleBars[selectedBars[0]].transform.localPosition;
         pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
+        if (Mathf.Abs(pos.x - _poleBarDefaultPos[selectedBars[0]].x) > 2f)
+            return;
         poleBars[selectedBars[0]].transform.localPosition = pos;
         
         pos = poleBars[selectedBars[1]].transform.localPosition;
         pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
+        if (Math.Abs(pos.x - _poleBarDefaultPos[selectedBars[1]].x) > 2f )
+            return;
         poleBars[selectedBars[1]].transform.localPosition = pos;
     }
 
