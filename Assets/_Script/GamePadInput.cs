@@ -21,24 +21,20 @@ public class GamePadInput : MonoBehaviour
 {
     public GameObject[] poleBars = new GameObject[4];
     public float poleSwitchDelay = 0.9f; //Seconds delay between switching the poles
-    public bool useSecondGamePad = false;
     public float amplifyRotation = 10f;
 
-    private PlayerControls _controls;
     private Hand _hand;
-    private Gamepad _gamePad;
-    
     private float _nextSwitch;
 
+ 
+    // actions via the action map and PlayerInput script 
+    // hint: PlayerInputManager 	Handles setups that allow for several players including scenarios such as player lobbies and split-screen gameplay.
     private float _controllerALeftRotate;
     private float _controllerALeftDrag;
     private float _controllerARightRotate;
     private float _controllerARightDrag;
     private bool _controllerADefense;
     private bool _controllerAOffense;
- 
-    // actions via the action map and PlayerInput script 
-    // hint: PlayerInputManager 	Handles setups that allow for several players including scenarios such as player lobbies and split-screen gameplay.
     public void OnRotatePoleLeftHand(InputValue context)
     {
         _controllerALeftRotate = context.Get<float>();
@@ -95,8 +91,6 @@ public class GamePadInput : MonoBehaviour
 
     private void Rotating()
     {
-        float amplify = 10f;
-
         if (_hand == Hand.Defence)
         {
             poleBars[0].transform.Rotate(_controllerALeftRotate * amplifyRotation, 0, 0);
