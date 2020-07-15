@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ab105305a129641a52cf299e009d38, type: 3}
-  m_Name: Multiball-Item
+  m_Name: MultiBall-Item
   m_EditorClassIdentifier: 
   description: Spans a lot more balls to play with.
   type: 0

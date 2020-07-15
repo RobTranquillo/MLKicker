@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff247f3b7206546468a36e7142a5f600, type: 3}
-  m_Name: Multiball-EffectSettings
+  m_Name: MultiBall-EffectSettings
   m_EditorClassIdentifier: 
-  sizingFactor: 0.2
+  count: 2

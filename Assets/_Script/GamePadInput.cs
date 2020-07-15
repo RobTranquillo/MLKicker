@@ -87,20 +87,41 @@ public class GamePadInput : MonoBehaviour
             selectedBars = new short[]{2,3};
 
         if (_barLimit[selectedBars[0]].limited())
-            Debug.Log("ICh bin am ENde! Bitte nicht weiter draggen");
-        
+            Debug.Log("Ich bin am Ende! Bitte nicht weiter draggen");
+
+        if (_barLimit[selectedBars[1]].limited())
+            Debug.Log("Ich bin am Ende! Bitte nicht weiter draggen");
+
+
         Vector3 pos;
+
+
         pos = poleBars[selectedBars[0]].transform.localPosition;
         pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
-        if (Mathf.Abs(pos.x - _poleBarDefaultPos[selectedBars[0]].x) > 2f)
-            return;
-        poleBars[selectedBars[0]].transform.localPosition = pos;
+
         
-        pos = poleBars[selectedBars[1]].transform.localPosition;
-        pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
-        if (Math.Abs(pos.x - _poleBarDefaultPos[selectedBars[1]].x) > 2f )
-            return;
-        poleBars[selectedBars[1]].transform.localPosition = pos;
+        if (!_barLimit[selectedBars[0]].limited()) 
+        { 
+            poleBars[selectedBars[0]].transform.localPosition = pos;
+        }
+
+        if (_barLimit[selectedBars[0]].limited())
+        {
+            pos = poleBars[selectedBars[0]].transform.localPosition;
+            pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerARightDrag / 10;
+        }
+        
+
+        if (!_barLimit[selectedBars[1]].limited()) 
+        { 
+            poleBars[selectedBars[1]].transform.localPosition = pos;
+        }
+
+        if (_barLimit[selectedBars[1]].limited())
+        {
+            pos = poleBars[selectedBars[1]].transform.localPosition;
+            pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
+        }
     }
 
     private void Rotating()
