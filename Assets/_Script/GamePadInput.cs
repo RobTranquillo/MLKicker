@@ -26,6 +26,7 @@ public class GamePadInput : MonoBehaviour
     private Hand _hand;
     private float _nextSwitch;
     private Vector3[] _poleBarDefaultPos = new Vector3[4];
+    private LimitDragging[] _barLimit = new LimitDragging[4];
 
     // actions via the action map and PlayerInput script 
     // hint: PlayerInputManager 	Handles setups that allow for several players including scenarios such as player lobbies and split-screen gameplay.
@@ -63,7 +64,10 @@ public class GamePadInput : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < 4; i++)
+        {
             _poleBarDefaultPos[i] = poleBars[i].transform.localPosition;
+            _barLimit[i] = poleBars[i].GetComponent<LimitDragging>();
+        }
 
         _nextSwitch = Time.time;
         _hand = Hand.Offense;
@@ -82,6 +86,9 @@ public class GamePadInput : MonoBehaviour
         if (_hand == Hand.Offense)
             selectedBars = new short[]{2,3};
 
+        if (_barLimit[selectedBars[0]].limited())
+            Debug.Log("ICh bin am ENde! Bitte nicht weiter draggen");
+        
         Vector3 pos;
         pos = poleBars[selectedBars[0]].transform.localPosition;
         pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;

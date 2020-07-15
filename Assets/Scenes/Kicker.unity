@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &190277905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +264,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5980431650217948972}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1048658491 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1280845184568077547, guid: bd3ec16db9137694790c7986cd8bf830,
+    type: 3}
+  m_PrefabInstance: {fileID: 1463794675503302918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1245042271 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1463794674075739179, guid: bd3ec16db9137694790c7986cd8bf830,
+    type: 3}
+  m_PrefabInstance: {fileID: 1463794675503302918}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291178167
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,6 +358,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1350860962320552014, guid: 738c6b954b5ee284bbc0e389486d703e,
     type: 3}
   m_PrefabInstance: {fileID: 1350860961892801674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1734040155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8060641016852307295, guid: bd3ec16db9137694790c7986cd8bf830,
+    type: 3}
+  m_PrefabInstance: {fileID: 1463794675503302918}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1937615327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8060641016511494811, guid: bd3ec16db9137694790c7986cd8bf830,
+    type: 3}
+  m_PrefabInstance: {fileID: 1463794675503302918}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1983031169 stripped
 Transform:
@@ -541,6 +565,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerRed
       objectReference: {fileID: 0}
+    - target: {fileID: 6820713270425445675, guid: bd3ec16db9137694790c7986cd8bf830,
+        type: 3}
+      propertyPath: stopperL
+      value: 
+      objectReference: {fileID: 1937615327}
+    - target: {fileID: 6820713270425445675, guid: bd3ec16db9137694790c7986cd8bf830,
+        type: 3}
+      propertyPath: standL
+      value: 
+      objectReference: {fileID: 1245042271}
+    - target: {fileID: 6820713270425445675, guid: bd3ec16db9137694790c7986cd8bf830,
+        type: 3}
+      propertyPath: stopperR
+      value: 
+      objectReference: {fileID: 1734040155}
+    - target: {fileID: 6820713270425445675, guid: bd3ec16db9137694790c7986cd8bf830,
+        type: 3}
+      propertyPath: standR
+      value: 
+      objectReference: {fileID: 1048658491}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd3ec16db9137694790c7986cd8bf830, type: 3}
 --- !u!1001 &3376658022371096168
