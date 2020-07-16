@@ -10,12 +10,9 @@ public class LimitDragging : MonoBehaviour
     public Transform stopperR;
     public Transform standR;
 
-    public bool limited()
+    public bool NoLimitedAt(float offset)
     {
-        return Mathf.Abs(standL.position.z - stopperL.position.z) < 2f || 
-               Mathf.Abs(standR.position.z - stopperR.position.z) < 2f;
+        return ! (Mathf.Abs(standL.position.z - stopperL.position.z) + offset < 1f ||
+                  Mathf.Abs(standR.position.z - stopperR.position.z) - offset < 1f);
     }
-    
-    
-
 }

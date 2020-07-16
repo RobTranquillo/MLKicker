@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6227132171286057709}
   - component: {fileID: 6227132171286057715}
+  - component: {fileID: 933898529}
   m_Layer: 0
   m_Name: Pole_BlueMiddle
   m_TagString: Untagged
@@ -60,6 +61,22 @@ MonoBehaviour:
   - {fileID: 4763421324698880278}
   selectedMaterial: {fileID: 2100000, guid: e4ac64eb9954fa04fa6fe1de760918e1, type: 2}
   unselectedMaterial: {fileID: 2100000, guid: 236c6abc0948f3e45acfc5ba0a2ab858, type: 2}
+--- !u!114 &933898529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227132171286057710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4994e39889f44ebda476b489c7dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopperL: {fileID: 3307437061953156534}
+  standL: {fileID: 6052063701626761697}
+  stopperR: {fileID: 3307437060994240159}
+  standR: {fileID: 6052063702747977875}
 --- !u!1 &6227132171311651203
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +121,7 @@ GameObject:
   - component: {fileID: 6227132171716355814}
   - component: {fileID: 6227132171716355812}
   - component: {fileID: 6227132171716355813}
+  - component: {fileID: 2076585745}
   m_Layer: 0
   m_Name: Pole_BlueOffense
   m_TagString: Untagged
@@ -166,6 +184,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2076585745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227132171716355815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4994e39889f44ebda476b489c7dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopperL: {fileID: 3307437060578087698}
+  standL: {fileID: 6052063702230891705}
+  stopperR: {fileID: 3307437060879038758}
+  standR: {fileID: 6052063701635035295}
 --- !u!1 &6227132171837055136
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +211,7 @@ GameObject:
   - component: {fileID: 6227132171837055143}
   - component: {fileID: 6227132171837055141}
   - component: {fileID: 6227132171837055142}
+  - component: {fileID: 1630503732}
   m_Layer: 0
   m_Name: Pole_BlueDefense
   m_TagString: Untagged
@@ -237,6 +272,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1630503732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227132171837055136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4994e39889f44ebda476b489c7dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopperL: {fileID: 3307437060999205840}
+  standL: {fileID: 6052063701580543270}
+  stopperR: {fileID: 3307437061732729314}
+  standR: {fileID: 6052063701360542251}
 --- !u!1 &6227132172005224644
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +398,7 @@ GameObject:
   - component: {fileID: 6227132172972757024}
   - component: {fileID: 6227132172972757030}
   - component: {fileID: 6227132172972757031}
+  - component: {fileID: 1646408685}
   m_Layer: 0
   m_Name: Pole_BlueGoalie
   m_TagString: Untagged
@@ -405,6 +457,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1646408685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6227132172972757025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4994e39889f44ebda476b489c7dbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopperL: {fileID: 6227132171515346268}
+  standL: {fileID: 6052063702698389336}
+  stopperR: {fileID: 3307437060336759819}
+  standR: {fileID: 6052063703363205253}
 --- !u!1 &6227132173121031025
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +498,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6227132173121031025}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -459,9 +527,7 @@ MonoBehaviour:
   - {fileID: 6227132171286057710}
   - {fileID: 6227132171716355815}
   poleSwitchDelay: 0.1
-  useSecondGamePad: 0
   amplifyRotation: 10
-  _playerInput: {fileID: 0}
 --- !u!114 &6878090844651555970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
         type: 3}
       propertyPath: m_Name
-      value: Stopper
+      value: StopperL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
@@ -648,7 +714,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -742,15 +808,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45daac4e284dd840b52c01de7a242ce, type: 3}
---- !u!1 &4812264105326400745 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1487224727515905243, guid: c45daac4e284dd840b52c01de7a242ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132171095959602}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4812264105326400744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1487224727515905242, guid: c45daac4e284dd840b52c01de7a242ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132171095959602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4812264105326400745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1487224727515905243, guid: c45daac4e284dd840b52c01de7a242ce,
     type: 3}
   m_PrefabInstance: {fileID: 6227132171095959602}
   m_PrefabAsset: {fileID: 0}
@@ -819,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -909,7 +975,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -988,15 +1054,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!1 &4763421324698880278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132171421011115}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4763421325678967833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132171421011115}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4763421324698880278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132171421011115}
   m_PrefabAsset: {fileID: 0}
@@ -1080,7 +1146,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -1106,6 +1172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
@@ -1184,15 +1255,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!1 &4763421325441987857 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132171618562220}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4763421326554857502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132171618562220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4763421325441987857 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132171618562220}
   m_PrefabAsset: {fileID: 0}
@@ -1218,6 +1289,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperL
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
 --- !u!4 &3307437060578087698 stripped
@@ -1242,6 +1318,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
@@ -1331,7 +1412,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -1410,15 +1491,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!4 &4763421326359579839 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132172097518605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4763421325391903152 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132172097518605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4763421326359579839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132172097518605}
   m_PrefabAsset: {fileID: 0}
@@ -1535,6 +1616,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperL
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
 --- !u!4 &3307437060999205840 stripped
@@ -1559,6 +1645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
@@ -1637,15 +1728,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!1 &4763421326081867665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132172250610220}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4763421325099190942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132172250610220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4763421326081867665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132172250610220}
   m_PrefabAsset: {fileID: 0}
@@ -1718,15 +1809,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!4 &4763421325090644184 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132172309221482}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4763421326123963863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132172309221482}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4763421325090644184 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132172309221482}
   m_PrefabAsset: {fileID: 0}
@@ -1799,15 +1890,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!4 &4763421325044045004 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132172322268286}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4763421326145397187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132172322268286}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4763421325044045004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132172322268286}
   m_PrefabAsset: {fileID: 0}
@@ -1891,7 +1982,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -2147,15 +2238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45daac4e284dd840b52c01de7a242ce, type: 3}
---- !u!1 &4812264106273634329 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1487224727515905243, guid: c45daac4e284dd840b52c01de7a242ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132172563530946}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4812264106273634328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1487224727515905242, guid: c45daac4e284dd840b52c01de7a242ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132172563530946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4812264106273634329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1487224727515905243, guid: c45daac4e284dd840b52c01de7a242ce,
     type: 3}
   m_PrefabInstance: {fileID: 6227132172563530946}
   m_PrefabAsset: {fileID: 0}
@@ -2228,15 +2319,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!4 &4763421324780042757 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132172602526391}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4763421325897699082 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132172602526391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4763421324780042757 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132172602526391}
   m_PrefabAsset: {fileID: 0}
@@ -2310,7 +2401,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: KickerStand
+      value: KickerStandR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -2341,6 +2432,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
@@ -2592,7 +2688,7 @@ PrefabInstance:
     - target: {fileID: 402518461708471509, guid: 3ae1803fc33e1ad46a9db1376e63c4aa,
         type: 3}
       propertyPath: m_Name
-      value: 'KickerStand '
+      value: KickerStandR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae1803fc33e1ad46a9db1376e63c4aa, type: 3}
@@ -2623,6 +2719,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902868572082787217, guid: 6c484d4f185083648af9f6639f0accb7,
+        type: 3}
+      propertyPath: m_Name
+      value: StopperL
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c484d4f185083648af9f6639f0accb7, type: 3}
@@ -2701,15 +2802,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
---- !u!1 &4763421326437364604 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6227132173134591681}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4763421325324600947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1472718596901286066, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6227132173134591681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4763421326437364604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1472718595732948413, guid: 0ede7a9ae170fce43abd8041f12aef4e,
     type: 3}
   m_PrefabInstance: {fileID: 6227132173134591681}
   m_PrefabAsset: {fileID: 0}
