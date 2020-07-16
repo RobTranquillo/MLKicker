@@ -97,31 +97,25 @@ public class GamePadInput : MonoBehaviour
 
 
         pos = poleBars[selectedBars[0]].transform.localPosition;
-        pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
+        //pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
+        Vector3 clampedPosition = pos;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x - _controllerALeftDrag / 10, -4.1f, 4.1f);
+        poleBars[selectedBars[0]].transform.localPosition = clampedPosition;
+        pos = poleBars[selectedBars[0]].transform.localPosition;
 
-        
+
         if (!_barLimit[selectedBars[0]].limited()) 
         { 
             poleBars[selectedBars[0]].transform.localPosition = pos;
         }
 
-        if (_barLimit[selectedBars[0]].limited())
-        {
-            pos = poleBars[selectedBars[0]].transform.localPosition;
-            pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerARightDrag / 10;
-        }
-        
+      
 
         if (!_barLimit[selectedBars[1]].limited()) 
         { 
             poleBars[selectedBars[1]].transform.localPosition = pos;
         }
 
-        if (_barLimit[selectedBars[1]].limited())
-        {
-            pos = poleBars[selectedBars[1]].transform.localPosition;
-            pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
-        }
     }
 
     private void Rotating()
