@@ -15,9 +15,7 @@ public class MultiBallEffect : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball"))
         {
-            GetComponent<Collider>().enabled = false;
-            StartCoroutine(ActivateCollider());
-            
+            DeactivateItem();
             if (Collect)
                 Collect.Play();
             SpawnBalls();
@@ -32,9 +30,16 @@ public class MultiBallEffect : MonoBehaviour
                 livingTime);
     }
 
-    IEnumerator ActivateCollider()
+    private void DeactivateItem()
+    {
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+        StartCoroutine(ActivateItem());
+    }
+    IEnumerator ActivateItem()
     {
         yield return new WaitForSeconds(livingTime);
         GetComponent<Collider>().enabled = true;
+        GetComponent<Renderer>().enabled = true;
     }
 }
