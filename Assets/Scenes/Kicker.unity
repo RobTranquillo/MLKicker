@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &99084773 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8606729679618609740, guid: 7566c3acd428dbd48a48b803a6faac52,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917304253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &190277904
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +209,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6227132172843568003}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &504843755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3156443147203578213, guid: 7566c3acd428dbd48a48b803a6faac52,
+    type: 3}
+  m_PrefabInstance: {fileID: 1917304253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &504843756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 504843755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41cab07d6cb4b446b455237182bdb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ball: {fileID: 1721699520}
+  Collect: {fileID: 99084773}
 --- !u!1 &672740146
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +390,11 @@ PrefabInstance:
       propertyPath: Ball
       value: 
       objectReference: {fileID: 1721699520}
+    - target: {fileID: 4272469018874889143, guid: 7566c3acd428dbd48a48b803a6faac52,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7283044304942685233, guid: 7566c3acd428dbd48a48b803a6faac52,
         type: 3}
       propertyPath: m_LocalPosition.x

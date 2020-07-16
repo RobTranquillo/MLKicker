@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8274758545275323157}
   - component: {fileID: 3271167305309607961}
   - component: {fileID: 2075262650394367168}
-  - component: {fileID: 4272469018874889143}
+  - component: {fileID: 504843756}
   m_Layer: 0
-  m_Name: ItemType1
+  m_Name: TestItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,7 +96,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4272469018874889143
+--- !u!114 &504843756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,14 +105,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3156443147203578213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ff86bcfa821f844898a612936bc20f, type: 3}
+  m_Script: {fileID: 11500000, guid: e41cab07d6cb4b446b455237182bdb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Ball: {fileID: 0}
   Collect: {fileID: 8606729679618609740}
-  rend: {fileID: 3271167305309607961}
-  ItemHit: 0
-  col: {fileID: 2075262650394367168}
+  count: 4
+  livingTime: 8
 --- !u!1 &6088471780980849744
 GameObject:
   m_ObjectHideFlags: 0
