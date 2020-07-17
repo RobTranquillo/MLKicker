@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64ab105305a129641a52cf299e009d38, type: 3}
-  m_Name: MultiBall-Item
+  m_Script: {fileID: 11500000, guid: ff247f3b7206546468a36e7142a5f600, type: 3}
+  m_Name: MultiBall_EffectSettings
   m_EditorClassIdentifier: 
-  description: Spawns a lot more balls to play with
-  type: 0
-  appearance: {fileID: 4441125107564066792, guid: c606696b9f32c054d8978c69e05a03ae,
+  particleEffect: {fileID: 5051063202184655179, guid: b70a33abc439d9d4b8bc84d078778a2d,
     type: 3}
-  ball: {fileID: 0}
+  count: 3
+  livingTime: 8

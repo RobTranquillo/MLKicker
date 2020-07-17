@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cccb09a8e54452e8f26b3b7244828c2, type: 3}
-  m_Name: GoalSize-EffectSettings
+  m_Script: {fileID: 11500000, guid: 64ab105305a129641a52cf299e009d38, type: 3}
+  m_Name: GoalSize_Item
   m_EditorClassIdentifier: 
-  particleEffect: {fileID: 5051063202184655179, guid: b70a33abc439d9d4b8bc84d078778a2d,
+  description: "Vergr\xF6\xDFert das generische Tor und verkleinert das eigene."
+  type: 1
+  appearance: {fileID: 1190968722465966813, guid: e3ac03ff893c531459ca4fbab002ae18,
     type: 3}
-  sizingFactor: 2.7
-  duration: 2.41

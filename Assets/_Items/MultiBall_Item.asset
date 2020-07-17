@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64ab105305a129641a52cf299e009d38, type: 3}
-  m_Name: GoalSize-Item
+  m_Name: MultiBall_Item
   m_EditorClassIdentifier: 
-  description: "Vergr\xF6\xDFert das generische Tor und verkleinert das eigene."
-  type: 1
-  appearance: {fileID: 1190968722465966813, guid: e3ac03ff893c531459ca4fbab002ae18,
+  description: Spawns a lot more balls to play with
+  type: 0
+  appearance: {fileID: 4441125107564066792, guid: c606696b9f32c054d8978c69e05a03ae,
     type: 3}
-  effect: {fileID: 11400000, guid: 92b9081a843c97c4a9815f79bc1accde, type: 2}
