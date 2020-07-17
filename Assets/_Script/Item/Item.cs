@@ -43,7 +43,6 @@ public class Item : ScriptableObject
     public string description;
     public ItemType type;
     public GameObject appearance;
-    public ItemEffect effect;
 
     /// <summary>
     /// Make the item visible on the field
@@ -51,10 +50,5 @@ public class Item : ScriptableObject
     public void Display()
     {
         GameObject go = Instantiate(appearance);
-    }
-
-    public void TriggerEffect()
-    {
-        
     }
 }

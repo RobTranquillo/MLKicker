@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff247f3b7206546468a36e7142a5f600, type: 3}
   m_Name: MultiBall-EffectSettings
   m_EditorClassIdentifier: 
-  count: 2
+  ball: {fileID: 0}
+  particleEffect: {fileID: 5051063202184655179, guid: b70a33abc439d9d4b8bc84d078778a2d,
+    type: 3}
+  count: 3
+  livingTime: 8

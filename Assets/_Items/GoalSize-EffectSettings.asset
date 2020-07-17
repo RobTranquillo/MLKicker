@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cccb09a8e54452e8f26b3b7244828c2, type: 3}
   m_Name: GoalSize-EffectSettings
   m_EditorClassIdentifier: 
-  sizingFactor: 0.2
+  particleEffect: {fileID: 5051063202184655179, guid: b70a33abc439d9d4b8bc84d078778a2d,
+    type: 3}
+  sizingFactor: 2.7
+  duration: 2.41

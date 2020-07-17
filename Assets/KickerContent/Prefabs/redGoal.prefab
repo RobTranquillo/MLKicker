@@ -4829,7 +4829,7 @@ GameObject:
   - component: {fileID: 9006282422817817053}
   m_Layer: 0
   m_Name: redGoal
-  m_TagString: Untagged
+  m_TagString: RedGoal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
