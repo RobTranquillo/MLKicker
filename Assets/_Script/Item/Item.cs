@@ -43,12 +43,18 @@ public class Item : ScriptableObject
     public string description;
     public ItemType type;
     public GameObject appearance;
+    private GameObject itemInstance;
 
     /// <summary>
     /// Make the item visible on the field
     /// </summary>
     public void Display()
     {
-        GameObject go = Instantiate(appearance);
+        itemInstance = Instantiate(appearance);
+    }
+
+    public void DestroyItems()
+    {
+        Destroy(itemInstance);
     }
 }
