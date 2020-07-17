@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 5304962053782749357}
   - component: {fileID: 1598600548217494433}
   - component: {fileID: 2847976514635569016}
-  - component: {fileID: 7219398265735115345}
-  - component: {fileID: 985263443330739090}
+  - component: {fileID: 24966756241219789}
   m_Layer: 0
   m_Name: BouncyBall_Object
   m_TagString: Untagged
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190968722465966813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.63, y: 7.1, z: 20.86}
+  m_LocalPosition: {x: 4.63, y: 7.1, z: 14.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f22bf48e22d4c5045a293bd623f663c2, type: 2}
+  - {fileID: 2100000, guid: 56802ab86773fb745a6ba0087c9fd0de, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,20 +95,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7219398265735115345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190968722465966813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2132c31fdceb7548a0a4718d4690281, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settings: {fileID: 11400000, guid: 92b9081a843c97c4a9815f79bc1accde, type: 2}
---- !u!114 &985263443330739090
+--- !u!114 &24966756241219789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +107,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9885b60762113734a8a337f9252e045f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 0}
-  Collect: {fileID: 0}
-  rend: {fileID: 0}
-  col: {fileID: 0}
-  ItemHit: 0
-  beingHandled: 0
+  settings: {fileID: 11400000, guid: 21a74c465d0a5374fa397332bb5b358a, type: 2}

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Multiball-EffectSettings", menuName = "KickerItem/Create Multiball effect settings")]
+[CreateAssetMenu(fileName = "MultiBall_EffectSettings", menuName = "KickerItem/Create MultiBall effect settings")]
 public class ItemEffectMultiBall : ScriptableObject
 {
     [Header("General Settings")]

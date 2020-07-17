@@ -150,10 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d485441bb7ff2e46899967afc8600df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 0}
+  ball: {fileID: 1721699520}
   availableItems:
   - {fileID: 11400000, guid: 548b76c5e998f554a8ab063ff3423536, type: 2}
   - {fileID: 11400000, guid: c0305e16703e7e440b6ee1475be5e052, type: 2}
+  - {fileID: 11400000, guid: 0d025a79a7805654f9efcb932066442a, type: 2}
 --- !u!4 &190277906
 Transform:
   m_ObjectHideFlags: 0

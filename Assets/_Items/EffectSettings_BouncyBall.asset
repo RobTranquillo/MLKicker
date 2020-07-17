@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0153b48b086178d4ea299b6d5c876824, type: 3}
+  m_Name: EffectSettings_BouncyBall
+  m_EditorClassIdentifier: 
+  particleEffect: {fileID: 5051063202184655179, guid: b70a33abc439d9d4b8bc84d078778a2d,
+    type: 3}
+  bounciness: 0.2
+  duration: 5

@@ -1,75 +1,116 @@
-﻿using System.Collections;
+﻿// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+//
+// public class BouncyBallEffect : MonoBehaviour
+// {
+//     public GameObject Ball;
+//     public ParticleSystem Collect;
+//     public Renderer rend;
+//     public Collider col;
+//     Collider colBall;
+//
+//     public bool ItemHit;
+//     public bool beingHandled;
+//     
+//     void Start()
+//     {
+//         rend = GetComponent<Renderer>();
+//         col = GetComponent<Collider>();
+//         colBall = Ball.GetComponent<Collider>();
+//     }
+//     
+//     void Update()
+//     {
+//         if (ItemHit)
+//         {
+//             if (rend.enabled)
+//                 StartCoroutine(HandleIt());
+//         }
+//     }
+//
+//     private void OnTriggerEnter(Collider other)
+//     {
+//         if (other.gameObject.CompareTag("Ball"))
+//         {
+//             col.enabled = false;
+//             rend.enabled = false;
+//             if (Collect)
+//                 Collect.Play();
+//             ItemHit = true;  
+//
+//         }
+//     }
+//
+//     private IEnumerator HandleIt()
+//     {
+//         beingHandled = true;
+//
+//         yield return new WaitForSeconds(1);
+//
+//         colBall.material.bounciness = 1;
+//
+//         yield return new WaitForSeconds(10);
+//
+//         colBall.material.bounciness = 0.5f;
+//
+//         yield return new WaitForSeconds(1);
+//
+//         rend.enabled = true; //Shalte den Renderer wieder ein
+//         col.enabled = true; //Schalte den Collider wieder ein
+//         ItemHit = false;
+//
+//         beingHandled = false;
+//     }
+// }
+
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class BouncyBallEffect : MonoBehaviour
 {
-    public GameObject Ball;
-
-    public ParticleSystem Collect;
-
-    public Renderer rend;
-
-    public Collider col;
-    Collider colBall;
-
-    public bool ItemHit;
-    public bool beingHandled;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public ItemEffectBouncyBall settings;
+    private GameObject _ball;
+    private float _bounciness;
+    
+    public void Start()
     {
-        rend = GetComponent<Renderer>(); //hole mir den Renderer des Items
-        col = GetComponent<Collider>(); //hole mir den Collider des Items
-        colBall = Ball.GetComponent<Collider>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (ItemHit == true)
-        {
-
-            if (rend.enabled == false) //Ist das Item unsichtbar?
-            {
-                StartCoroutine(HandleIt());
-            }
-
-        }
+        _ball = GameObject.FindWithTag("Ball");
+        _bounciness = _ball.GetComponent<Collider>().material.bounciness;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ball")) //Hat der Ball das Item getroffen?
+        if (other.gameObject == _ball)
         {
-            col.enabled = false; //Collider des items wird ausgeschaltet
-            rend.enabled = false; //Renderer des Items wird ausgeschaltet
-            if (Collect)    //Spiel das Partikel System ab als Feedback
-                Collect.Play();
-            ItemHit = true; //Dann schalte den bool dafür auf true 
-
+            SwitchItem();
+            if (settings.particleEffect)
+            {
+                var ps = Instantiate(settings.particleEffect, this.transform).GetComponent<ParticleSystem>();
+                ps.Play();
+            }
         }
+        
+        StartCoroutine(ResetBounciness(_bounciness));
+        _bounciness = settings.bounciness;
+        Debug.Log("Set B");
     }
 
-    private IEnumerator HandleIt()
+    private IEnumerator ResetBounciness(float val)
     {
-        beingHandled = true;
+        yield return new WaitForSeconds(settings.duration);
+        _bounciness = val;
+        Debug.Log("Reset");
+    }
 
-        yield return new WaitForSeconds(1);
-
-        colBall.material.bounciness = 1;
-
-        yield return new WaitForSeconds(10);
-
-        colBall.material.bounciness = 0.5f;
-
-        yield return new WaitForSeconds(1);
-
-        rend.enabled = true; //Shalte den Renderer wieder ein
-        col.enabled = true; //Schalte den Collider wieder ein
-        ItemHit = false;
-
-        beingHandled = false;
+    private void SwitchItem()
+    {
+        this.enabled = ! this.enabled;
+        Invoke("SwitchItem", settings.duration);
     }
 }

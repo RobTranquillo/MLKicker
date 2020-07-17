@@ -23,7 +23,7 @@ public class ItemController : MonoBehaviour
 
     void Start()
     {
-        availableItems[0].Display();
-        availableItems[1].Display();
+        foreach (var item in availableItems)
+            item.Display(); 
     }
 }
