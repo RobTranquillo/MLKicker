@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64ab105305a129641a52cf299e009d38, type: 3}
   m_Name: BouncyBall_Item
   m_EditorClassIdentifier: 
-  description: 
+  description: "L\xE4sst den Ball st\xE4rker h\xFCpfen"
   type: 0
-  appearance: {fileID: 0}
+  appearance: {fileID: 1190968722465966813, guid: f21aa7f56d6b9e2459abdaa017a130a9,
+    type: 3}
