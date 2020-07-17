@@ -6,35 +6,34 @@ using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
-    public float timeLeft = 15;
-    public TorTrigger TorRed;
-    public TorTrigger TorBlue;
-    public GameObject ball;
-    public ParticleSystem end;
-    Vector3 startPosBall;
-
     public Text time;
+    public ParticleSystem end;
+ 
+    private GameController _game;
+    private TorTrigger _goalRed;
+    private TorTrigger _goalBlue;
+    private float _timeLeft;
 
-    void Start()
+    private void Start()
     {
-        startPosBall = ball.transform.position;
+        _game = FindObjectOfType<GameController>();
+        _goalBlue = GameObject.FindWithTag("BlueGoal").GetComponentInChildren<TorTrigger>();
+        _goalRed = GameObject.FindWithTag("RedGoal").GetComponentInChildren<TorTrigger>();
+        _timeLeft = _game.gameDuration;
     }
 
     void Update()
     {
-
-        timeLeft -= Time.deltaTime;
-        time.text = "Time Left:" + Mathf.Round(timeLeft);
-        if (timeLeft < 0)
+        _timeLeft -= Time.deltaTime;
+        time.text = "Time Left:" + Mathf.Round(_timeLeft);
+        if (_timeLeft < 0)
         {
             if (end)
                 end.Play();
-            timeLeft = 15;
-            TorRed.ResetScore();
-            TorBlue.ResetScore();
-            ball.transform.position = startPosBall;
-
-
+            _game.ThrowBallIn();
+            _timeLeft = (float) _game.gameDuration;
+            _goalRed.ResetScore();
+            _goalBlue.ResetScore();
         }
     }
 }

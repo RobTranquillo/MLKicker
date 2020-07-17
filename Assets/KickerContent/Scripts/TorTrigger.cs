@@ -6,21 +6,20 @@ using UnityEngine.UI;
 public class TorTrigger : MonoBehaviour
 {
 	public Text scoreText;
-	int score;
     public ParticleSystem winPS;
 	public string compareTag = "Ball";
-    public GameObject ball;
-    Vector3 startPosBall;
+	
+    private int _score;
+    private GameController _game;
 
     public void Start()
     {
-        startPosBall = ball.transform.position;
+	    _game = FindObjectOfType<GameController>();
     }
     private void OnTriggerEnter(Collider other) {
 		
 		if (other.CompareTag(compareTag)) {
-            ball.transform.position = startPosBall;
-            IncreaseScore();
+			IncreaseScore();
             OnTor();
 		}
 	}
@@ -28,18 +27,19 @@ public class TorTrigger : MonoBehaviour
 	void OnTor() {
 		if (winPS)
 			winPS.Play();
+		_game.ThrowBallIn();
 	}
     public void IncreaseScore() {
-        SetScore(++score);
+        SetScore(++_score);
     }
     public void ResetScore() {
         SetScore(0);
     }
 
     private void SetScore(int v) {
-        score = v;
+        _score = v;
         if (scoreText)
-            scoreText.text = (score).ToString();
+            scoreText.text = (_score).ToString();
     }
 
     
