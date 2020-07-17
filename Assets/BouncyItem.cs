@@ -15,6 +15,7 @@ public class BouncyItem : MonoBehaviour
 
     public bool ItemHit;
     public bool beingHandled;
+    public int livingTime = 4;
 
 
     // Start is called before the first frame update
@@ -43,13 +44,25 @@ public class BouncyItem : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ball")) //Hat der Ball das Item getroffen?
         {
-            col.enabled = false; //Collider des items wird ausgeschaltet
-            rend.enabled = false; //Renderer des Items wird ausgeschaltet
+            DeactivateItem();
             if (Collect)    //Spiel das Partikel System ab als Feedback
                 Collect.Play();
             ItemHit = true; //Dann schalte den bool dafür auf true 
 
         }
+    }
+    private void DeactivateItem()
+    {
+        GetComponent<Collider>().enabled = false;
+        GetComponent<Renderer>().enabled = false;
+        StartCoroutine(ActivateItem());
+    }
+
+    IEnumerator ActivateItem()
+    {
+        yield return new WaitForSeconds(livingTime);
+        GetComponent<Collider>().enabled = true;
+        GetComponent<Renderer>().enabled = true;
     }
 
     private IEnumerator HandleIt()
@@ -66,8 +79,7 @@ public class BouncyItem : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        rend.enabled = true; //Shalte den Renderer wieder ein
-        col.enabled = true; //Schalte den Collider wieder ein
+        
         ItemHit = false;
 
         beingHandled = false;

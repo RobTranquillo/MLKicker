@@ -88,13 +88,13 @@ public class GamePadInput : MonoBehaviour
         
         Vector3 pos;
         pos = poleBars[selectedBars[0]].transform.localPosition;
-        pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
-        if (_barLimit[selectedBars[0]].NoLimitedAt(_controllerALeftDrag / 10))
+        pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 8;
+        if (_barLimit[selectedBars[0]].NoLimitedAt(_controllerALeftDrag / 8))
             poleBars[selectedBars[0]].transform.localPosition = pos;
 
         pos = poleBars[selectedBars[1]].transform.localPosition;
-        pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
-        if (_barLimit[selectedBars[1]].NoLimitedAt(_controllerARightDrag / 10))
+        pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 8;
+        if (_barLimit[selectedBars[1]].NoLimitedAt(_controllerARightDrag / 8))
             poleBars[selectedBars[1]].transform.localPosition = pos;
     }
 

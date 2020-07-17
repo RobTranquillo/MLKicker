@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
 {
-    public float timeLeft = 15;
+    public float timeLeft = 120;
     public TorTrigger TorRed;
     public TorTrigger TorBlue;
     public GameObject ball;
@@ -29,7 +29,7 @@ public class CountDown : MonoBehaviour
         {
             if (end)
                 end.Play();
-            timeLeft = 15;
+            timeLeft = 120;
             TorRed.ResetScore();
             TorBlue.ResetScore();
             ball.transform.position = startPosBall;

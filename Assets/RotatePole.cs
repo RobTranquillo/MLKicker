@@ -13,9 +13,9 @@ public class RotatePole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        void Update()
-        {
-            transform.Rotate(50 * Time.deltaTime, 0,0 ); //rotates 50 degrees per second around z axis
-        }
+        
+        
+            transform.Rotate(50 * Time.deltaTime * 10, 0,0 ); //rotates 50 degrees per second around z axis
+        
     }
 }
