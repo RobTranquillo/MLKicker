@@ -528,6 +528,7 @@ MonoBehaviour:
   - {fileID: 6227132171716355815}
   poleSwitchDelay: 0.1
   amplifyRotation: 10
+  dragForce: 5.5
 --- !u!114 &6878090844651555970
 MonoBehaviour:
   m_ObjectHideFlags: 0

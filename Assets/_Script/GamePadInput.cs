@@ -21,7 +21,8 @@ public class GamePadInput : MonoBehaviour
 {
     public GameObject[] poleBars = new GameObject[4];
     public float poleSwitchDelay = 0.9f; //Seconds delay between switching the poles
-    public float amplifyRotation = 10f;
+    [Range(1, 100)] public float amplifyRotation = 10f;
+    [Range(1, 10)] public float dragForce = 10f;
 
     private Hand _hand;
     private float _nextSwitch;
@@ -88,13 +89,13 @@ public class GamePadInput : MonoBehaviour
         
         Vector3 pos;
         pos = poleBars[selectedBars[0]].transform.localPosition;
-        pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / 10;
-        if (_barLimit[selectedBars[0]].NoLimitedAt(_controllerALeftDrag / 10))
+        pos.x = poleBars[selectedBars[0]].transform.localPosition.x - _controllerALeftDrag / (11 - dragForce);
+        if (_barLimit[selectedBars[0]].NoLimitedAt(_controllerALeftDrag / (11 - dragForce)))
             poleBars[selectedBars[0]].transform.localPosition = pos;
 
         pos = poleBars[selectedBars[1]].transform.localPosition;
-        pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / 10;
-        if (_barLimit[selectedBars[1]].NoLimitedAt(_controllerARightDrag / 10))
+        pos.x = poleBars[selectedBars[1]].transform.localPosition.x - _controllerARightDrag / (11 - dragForce);
+        if (_barLimit[selectedBars[1]].NoLimitedAt(_controllerARightDrag / (11 - dragForce)))
             poleBars[selectedBars[1]].transform.localPosition = pos;
     }
 
