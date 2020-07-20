@@ -576,6 +576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
 --- !u!4 &1463794673697677585 stripped
@@ -903,6 +908,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
 --- !u!4 &9099845011167431 stripped
@@ -983,6 +993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
@@ -1179,6 +1194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
@@ -1392,6 +1412,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
 --- !u!4 &9099845467505150 stripped
@@ -1578,6 +1603,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
 --- !u!4 &9099845596756866 stripped
@@ -1658,6 +1688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
@@ -1871,6 +1906,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'Player '
       objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
 --- !u!1 &9099845379922093 stripped
@@ -1951,6 +1991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
@@ -2248,6 +2293,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}
 --- !u!1 &9099845789206367 stripped
@@ -2424,6 +2474,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: 'Player '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328953754052621906, guid: 0ede7a9ae170fce43abd8041f12aef4e,
+        type: 3}
+      propertyPath: isTeam
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ede7a9ae170fce43abd8041f12aef4e, type: 3}

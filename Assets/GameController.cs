@@ -1,6 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.UI;
+
+
+public enum Team
+{
+    None,
+    Red,
+    Blue
+}
 
 public class GameController : MonoBehaviour
 {
@@ -15,6 +26,8 @@ public class GameController : MonoBehaviour
     [Tooltip("Zeit die der Ball wartet beim Einwurf, wenn das Spiel beginnt oder nach Tor.")]
     public float startGameDelay = 1.3f;
     public GameObject ballPrefab;
+    
+    public Team BallPossession { get; set; }
     
     [Tooltip("Drop an Object to use this position as start position")]
     public Transform ballStartPosition;

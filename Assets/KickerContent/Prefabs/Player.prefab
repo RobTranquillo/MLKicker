@@ -206,6 +206,7 @@ GameObject:
   - component: {fileID: 1472718597564679229}
   - component: {fileID: 1472718597564679230}
   - component: {fileID: 931017187549288641}
+  - component: {fileID: 3328953754052621906}
   m_Layer: 0
   m_Name: Foot
   m_TagString: Untagged
@@ -316,6 +317,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3328953754052621906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1472718597564679219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea72c4e6346d284d8fe238168fc302a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTeamRed: 0
 --- !u!64 &8412983456299160678
 MeshCollider:
   m_ObjectHideFlags: 0
